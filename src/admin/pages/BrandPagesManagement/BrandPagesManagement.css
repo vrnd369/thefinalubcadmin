@@ -1,0 +1,470 @@
+/* ============================================
+   BRAND PAGES MANAGEMENT PAGE
+   ============================================ */
+
+/* Remove page-level padding/margins - pull content to full page edges */
+.brand-pages-management {
+  width: 100%;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  margin-left: calc(-1 * var(--admin-spacing-xl));
+  margin-right: calc(-1 * var(--admin-spacing-xl));
+  margin-top: calc(-1 * var(--admin-spacing-xl));
+  margin-bottom: calc(-1 * var(--admin-spacing-xl));
+  width: calc(100% + 2 * var(--admin-spacing-xl));
+  max-width: calc(100% + 2 * var(--admin-spacing-xl));
+  box-sizing: border-box;
+}
+
+.brand-pages-management .admin-heading-1 {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+}
+
+/* Add horizontal padding to alerts, empty state, editor, and loading */
+.brand-pages-management .admin-alert {
+  margin-left: var(--admin-spacing-xl);
+  margin-right: var(--admin-spacing-xl);
+}
+
+.brand-pages-management .admin-empty-state {
+  margin-left: var(--admin-spacing-xl);
+  margin-right: var(--admin-spacing-xl);
+}
+
+.brand-pages-management .brand-page-editor-container {
+  margin-left: var(--admin-spacing-xl);
+  margin-right: var(--admin-spacing-xl);
+}
+
+.brand-pages-management .admin-loading {
+  margin-left: var(--admin-spacing-xl);
+  margin-right: var(--admin-spacing-xl);
+}
+
+/* Page Header */
+.brand-pages-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--admin-spacing-2xl);
+  gap: var(--admin-spacing-lg);
+  padding: var(--admin-spacing-xl) var(--admin-spacing-xl);
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--admin-spacing-md);
+  flex-shrink: 0;
+  align-items: center;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--admin-spacing-lg);
+}
+
+.modal-content {
+  background: white;
+  border-radius: var(--admin-radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--admin-spacing-xl);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.modal-body {
+  padding: var(--admin-spacing-xl);
+}
+
+/* Brand Selector */
+.brand-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--admin-spacing-md);
+  margin-top: var(--admin-spacing-md);
+}
+
+.brand-selector-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--admin-spacing-lg);
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--admin-radius-md);
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.brand-selector-card:hover {
+  background: #f1f5f9;
+  border-color: var(--admin-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.brand-selector-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--admin-spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.brand-selector-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-selector-icon-placeholder {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  font-size: 32px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.brand-selector-name {
+  font-weight: 600;
+  color: #1e293b;
+  text-align: center;
+}
+
+.brand-selector-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--admin-success);
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* Template Selector */
+.template-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--admin-spacing-lg);
+  margin-top: var(--admin-spacing-md);
+}
+
+.template-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--admin-spacing-xl);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: var(--admin-radius-lg);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+  position: relative;
+}
+
+.template-card:hover {
+  border-color: var(--admin-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+}
+
+.template-icon {
+  font-size: 3rem;
+  margin-bottom: var(--admin-spacing-md);
+}
+
+.template-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: var(--admin-spacing-sm);
+}
+
+.template-description {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.template-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--admin-primary) 0%,
+    var(--admin-primary-dark) 100%
+  );
+  color: white;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* Brand Pages Grid */
+.brand-pages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: var(--admin-spacing-xl);
+  padding: var(--admin-spacing-md) var(--admin-spacing-xl);
+}
+
+.brand-page-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--admin-radius-lg);
+  padding: var(--admin-spacing-xl);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s;
+}
+
+.brand-page-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.brand-page-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--admin-spacing-md);
+}
+
+.brand-page-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: var(--admin-spacing-xs);
+}
+
+.brand-page-card-meta {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 4px 0;
+}
+
+.brand-page-card-meta code {
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  color: var(--admin-primary);
+}
+
+.brand-page-card-badges {
+  display: flex;
+  gap: var(--admin-spacing-xs);
+}
+
+.brand-page-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.brand-page-badge-success {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.brand-page-badge-inactive {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.brand-page-card-sections {
+  margin: var(--admin-spacing-md) 0;
+  padding: var(--admin-spacing-md);
+  background: #f8fafc;
+  border-radius: var(--admin-radius-md);
+}
+
+.section-indicator {
+  display: flex;
+  gap: var(--admin-spacing-xs);
+  flex-wrap: wrap;
+}
+
+.section-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--admin-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: help;
+}
+
+.brand-page-card-actions {
+  display: flex;
+  gap: var(--admin-spacing-sm);
+  flex-wrap: wrap;
+  margin-top: var(--admin-spacing-md);
+  padding-top: var(--admin-spacing-md);
+  border-top: 1px solid #e2e8f0;
+}
+
+.brand-page-card-actions .admin-btn {
+  flex: 1;
+  min-width: 100px;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+.brand-page-editor-container {
+  margin-bottom: var(--admin-spacing-xl);
+  width: 100%;
+  max-width: 100%;
+}
+
+.brand-page-editor-with-preview {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Empty State */
+.admin-empty-state {
+  text-align: center;
+  padding: var(--admin-spacing-2xl);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--admin-radius-lg);
+  margin: var(--admin-spacing-xl) 0;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: var(--admin-spacing-md);
+}
+
+.empty-state-actions {
+  display: flex;
+  gap: var(--admin-spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--admin-spacing-lg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  /* Adjust negative margins for mobile to account for smaller admin-content padding */
+  .brand-pages-management {
+    margin-left: calc(-1 * var(--admin-spacing-md));
+    margin-right: calc(-1 * var(--admin-spacing-md));
+    margin-top: calc(-1 * var(--admin-spacing-md));
+    margin-bottom: calc(-1 * var(--admin-spacing-md));
+    width: calc(100% + 2 * var(--admin-spacing-md));
+    max-width: calc(100% + 2 * var(--admin-spacing-md));
+  }
+
+  .brand-pages-header {
+    flex-direction: column;
+    padding: var(--admin-spacing-lg) var(--admin-spacing-md);
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .brand-pages-grid {
+    grid-template-columns: 1fr;
+    padding: var(--admin-spacing-md) var(--admin-spacing-md);
+  }
+
+  .template-selector-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-selector-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  /* Adjust horizontal padding for mobile */
+  .brand-pages-management .admin-alert {
+    margin-left: var(--admin-spacing-md);
+    margin-right: var(--admin-spacing-md);
+  }
+
+  .brand-pages-management .admin-empty-state {
+    margin-left: var(--admin-spacing-md);
+    margin-right: var(--admin-spacing-md);
+  }
+
+  .brand-pages-management .brand-page-editor-container {
+    margin-left: var(--admin-spacing-md);
+    margin-right: var(--admin-spacing-md);
+  }
+
+  .brand-pages-management .admin-loading {
+    margin-left: var(--admin-spacing-md);
+    margin-right: var(--admin-spacing-md);
+  }
+}

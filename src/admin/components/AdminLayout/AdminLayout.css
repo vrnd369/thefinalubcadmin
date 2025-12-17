@@ -1,0 +1,101 @@
+/* ============================================
+   ADMIN LAYOUT - Main Container
+   ============================================ */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--admin-bg);
+}
+
+.admin-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 280px; /* Sidebar width */
+  transition: margin-left 0.3s ease;
+}
+
+.admin-layout.sidebar-closed .admin-main-content {
+  margin-left: 70px; /* Collapsed sidebar width */
+}
+
+/* Header */
+.admin-header {
+  background-color: var(--admin-bg-secondary);
+  border-bottom: 1px solid var(--admin-border);
+  padding: var(--admin-spacing-lg) var(--admin-spacing-xl);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: var(--admin-shadow-sm);
+}
+
+.admin-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 0;
+  gap: var(--admin-spacing-md);
+  width: 100%;
+}
+
+.sidebar-toggle-btn {
+  background: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--admin-text);
+  transition: var(--admin-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+}
+
+.sidebar-toggle-btn:hover {
+  background: var(--admin-bg-secondary);
+  color: var(--admin-primary);
+  border-color: var(--admin-primary);
+}
+
+/* Main Content Area */
+.admin-content {
+  flex: 1;
+  padding: var(--admin-spacing-xl);
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.admin-layout.sidebar-closed .admin-content {
+  max-width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-main-content {
+    margin-left: 0;
+  }
+  
+  .admin-content {
+    padding: var(--admin-spacing-md);
+  }
+  
+  .admin-header {
+    padding: var(--admin-spacing-md);
+  }
+  
+  .admin-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--admin-spacing-md);
+  }
+}
+

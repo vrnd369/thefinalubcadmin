@@ -1,0 +1,628 @@
+/* ============================================
+   HOME MANAGEMENT PAGE
+   ============================================ */
+
+.home-management {
+  width: 100%;
+  max-width: 100%;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  min-height: 100vh;
+  padding: var(--admin-spacing-lg);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.home-management .admin-heading-1 {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+}
+
+/* Page Header */
+.home-management-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--admin-spacing-2xl);
+  gap: var(--admin-spacing-lg);
+  padding: var(--admin-spacing-xl) 0;
+  border-bottom: 2px solid #f1f5f9;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--admin-spacing-md);
+  flex-shrink: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.header-actions .admin-btn {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+}
+
+.header-actions .admin-btn-primary {
+  background: linear-gradient(135deg, var(--admin-primary) 0%, var(--admin-primary-dark) 100%);
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+}
+
+.header-actions .admin-btn-primary:hover {
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+.header-actions .admin-btn-secondary {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.header-actions .admin-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.empty-state-actions {
+  display: flex;
+  gap: var(--admin-spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Editor Container */
+.home-editor-container {
+  margin-bottom: var(--admin-spacing-xl);
+}
+
+/* Sections Grid */
+.home-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: var(--admin-spacing-lg);
+  padding: var(--admin-spacing-md) 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Ensure cards don't overflow */
+.home-sections-grid > * {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive grid adjustments */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .home-sections-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--admin-spacing-lg);
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-sections-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--admin-spacing-xl);
+  }
+}
+
+@media (min-width: 1400px) {
+  .home-sections-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--admin-spacing-xl);
+  }
+}
+
+/* Ensure cards fit at standard desktop resolutions (1920px) */
+@media (min-width: 1600px) {
+  .home-sections-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--admin-spacing-xl);
+    max-width: 100%;
+  }
+}
+
+/* Empty State */
+.admin-empty-state {
+  text-align: center;
+  padding: var(--admin-spacing-2xl);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--admin-radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+
+.admin-empty-state:hover {
+  border-color: var(--admin-primary-light);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Alert Styles */
+.admin-alert {
+  padding: var(--admin-spacing-md);
+  border-radius: var(--admin-radius);
+  margin-bottom: var(--admin-spacing-lg);
+}
+
+.admin-alert-error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+/* Loading State */
+/* Prevent layout shifts during loading */
+.home-management > * {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.admin-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--admin-spacing-md);
+  padding: var(--admin-spacing-2xl);
+}
+
+/* Home Page Preview Section */
+.home-preview-section {
+  margin-bottom: var(--admin-spacing-2xl);
+  padding: var(--admin-spacing-xl);
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--admin-radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.preview-header {
+  margin-bottom: var(--admin-spacing-lg);
+  padding-bottom: var(--admin-spacing-lg);
+  border-bottom: 2px solid #f1f5f9;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--admin-spacing-md);
+}
+
+.preview-header h2 {
+  margin-bottom: var(--admin-spacing-xs);
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.preview-controls {
+  display: flex;
+  gap: var(--admin-spacing-sm);
+  flex-shrink: 0;
+}
+
+.preview-controls .admin-btn {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+}
+
+.preview-controls .admin-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-preview-container {
+  position: relative;
+  background: #ffffff;
+  border-radius: var(--admin-radius-lg);
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+  min-height: 600px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.home-preview-container:hover {
+  border-color: var(--admin-primary-light);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.home-preview-iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  border: none;
+  background: #ffffff;
+}
+
+.home-preview-wrapper {
+  position: relative;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: auto !important; /* Enable horizontal scrolling */
+  background: #ffffff;
+  padding: 0;
+  /* Hide horizontal scrollbar but keep functionality */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: transparent transparent; /* Firefox - hide horizontal */
+}
+
+/* Override any overflow-x: hidden from parent styles */
+.home-preview-wrapper * {
+  overflow-x: visible !important;
+}
+
+.home-preview-wrapper {
+  overflow-x: auto !important;
+}
+
+/* Hide horizontal scrollbar in WebKit browsers */
+.home-preview-wrapper::-webkit-scrollbar:horizontal {
+  height: 0px;
+  background: transparent;
+  display: none;
+}
+
+.home-preview-wrapper::-webkit-scrollbar-thumb:horizontal {
+  background: transparent;
+}
+
+/* Override styles for preview to ensure proper display */
+.home-preview-wrapper .home {
+  margin: 0;
+  padding: 0;
+  width: max-content; /* Allow content to expand beyond container */
+  min-width: 100%; /* At least fill container */
+  max-width: none !important; /* Remove max-width restriction */
+  overflow-x: visible !important; /* Allow horizontal overflow */
+}
+
+.home-preview-wrapper .hero {
+  position: relative !important;
+  height: auto !important;
+  min-height: 500px !important;
+}
+
+.home-preview-wrapper section {
+  margin: 0 !important;
+  padding: var(--admin-spacing-xl) 0 !important;
+  overflow-x: visible !important; /* Allow sections to overflow horizontally */
+}
+
+/* Allow all sections to expand beyond container width */
+.home-preview-wrapper section,
+.home-preview-wrapper .section {
+  max-width: none !important;
+  width: auto !important;
+}
+
+/* Scrollbar styling for preview */
+.home-preview-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.home-preview-wrapper::-webkit-scrollbar-track {
+  background: var(--admin-bg-secondary);
+}
+
+.home-preview-wrapper::-webkit-scrollbar-thumb {
+  background: var(--admin-border);
+  border-radius: 4px;
+}
+
+.home-preview-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* ============================================
+   SPLIT LAYOUT (Preview Left, Editor Right)
+   ============================================ */
+
+.home-management-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--admin-spacing-xl);
+  margin-bottom: var(--admin-spacing-2xl);
+  align-items: flex-start;
+  min-height: calc(100vh - 200px);
+}
+
+/* Left Panel: Preview */
+.split-preview-panel {
+  position: sticky;
+  top: var(--admin-spacing-lg);
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--admin-radius-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Clip content to panel bounds */
+}
+
+.split-preview-panel .preview-header {
+  padding: var(--admin-spacing-lg);
+  background: #ffffff;
+  border-bottom: 2px solid #f1f5f9;
+  flex-shrink: 0;
+}
+
+.split-preview-panel .preview-header h2 {
+  margin: 0 0 var(--admin-spacing-xs) 0;
+  color: #1e293b;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.split-preview-panel .preview-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.split-preview-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: auto !important; /* Enable horizontal scrolling */
+  background: #ffffff;
+  position: relative;
+  /* Hide horizontal scrollbar but keep functionality */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: transparent transparent; /* Firefox - hide horizontal */
+}
+
+/* Override any overflow-x: hidden from parent styles */
+.split-preview-container * {
+  overflow-x: visible !important;
+}
+
+.split-preview-container {
+  overflow-x: auto !important;
+}
+
+/* Hide horizontal scrollbar in WebKit browsers (Chrome, Safari, Edge) */
+.split-preview-container::-webkit-scrollbar:horizontal {
+  height: 0px; /* Make horizontal scrollbar invisible */
+  background: transparent;
+}
+
+.split-preview-container::-webkit-scrollbar-thumb:horizontal {
+  background: transparent;
+}
+
+.split-preview-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: auto !important; /* Enable horizontal scrolling */
+  background: #ffffff;
+  padding: 0;
+  /* Hide horizontal scrollbar but keep functionality */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: transparent transparent; /* Firefox - hide horizontal */
+}
+
+/* Override any overflow-x: hidden from parent styles */
+.split-preview-wrapper * {
+  overflow-x: visible !important;
+}
+
+.split-preview-wrapper {
+  overflow-x: auto !important;
+}
+
+/* Hide horizontal scrollbar in WebKit browsers */
+.split-preview-wrapper::-webkit-scrollbar:horizontal {
+  height: 0px; /* Make horizontal scrollbar invisible */
+  background: transparent;
+}
+
+.split-preview-wrapper::-webkit-scrollbar-thumb:horizontal {
+  background: transparent;
+}
+
+.split-preview-wrapper .home {
+  margin: 0;
+  padding: 0;
+  width: max-content; /* Allow content to expand beyond container */
+  min-width: 100%; /* At least fill container */
+  max-width: none !important; /* Remove max-width restriction */
+  overflow-x: visible !important; /* Allow horizontal overflow */
+}
+
+.split-preview-wrapper .hero {
+  position: relative !important;
+  height: 1226px !important; /* Allow full hero height for videos */
+  min-height: 1226px !important; /* Ensure videos display fully */
+  max-height: none !important; /* Remove height restrictions */
+}
+
+/* Ensure hero video wrapper displays properly in preview */
+.split-preview-wrapper .hero-video-wrapper {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Ensure videos fill the hero section properly */
+.split-preview-wrapper .hero-video,
+.split-preview-wrapper .dynamic-hero-video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.split-preview-wrapper section {
+  margin: 0 !important;
+  padding: var(--admin-spacing-lg) 0 !important;
+  overflow-x: visible !important; /* Allow sections to overflow horizontally */
+}
+
+/* Allow all sections to expand beyond container width */
+.split-preview-wrapper section,
+.split-preview-wrapper .section {
+  max-width: none !important;
+  width: auto !important;
+}
+
+/* Scrollbar styling for split preview - Vertical scrollbar only */
+.split-preview-container::-webkit-scrollbar,
+.split-preview-wrapper::-webkit-scrollbar {
+  width: 8px; /* Vertical scrollbar width */
+  height: 0px; /* Horizontal scrollbar height (hidden) */
+}
+
+.split-preview-container::-webkit-scrollbar:vertical,
+.split-preview-wrapper::-webkit-scrollbar:vertical {
+  width: 8px; /* Show vertical scrollbar */
+}
+
+.split-preview-container::-webkit-scrollbar:horizontal,
+.split-preview-wrapper::-webkit-scrollbar:horizontal {
+  height: 0px; /* Hide horizontal scrollbar */
+  display: none; /* Additional hiding for some browsers */
+}
+
+.split-preview-container::-webkit-scrollbar-track,
+.split-preview-wrapper::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.split-preview-container::-webkit-scrollbar-thumb,
+.split-preview-wrapper::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.split-preview-container::-webkit-scrollbar-thumb:hover,
+.split-preview-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Right Panel: Editor */
+.split-editor-panel {
+  background: transparent;
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+  padding-right: var(--admin-spacing-sm);
+}
+
+.split-editor-panel .home-section-editor {
+  position: relative;
+}
+
+/* Live Section Preview Component */
+.live-section-preview {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: visible !important;
+}
+
+.live-section-preview .home {
+  margin: 0;
+  padding: 0;
+  width: max-content !important;
+  min-width: 100%;
+  max-width: none !important;
+  overflow-x: visible !important;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .home-management-split-layout {
+    grid-template-columns: 1fr;
+    gap: var(--admin-spacing-lg);
+  }
+
+  .split-preview-panel {
+    position: relative;
+    top: 0;
+    height: 600px;
+    max-height: 70vh;
+  }
+
+  .split-preview-wrapper .hero {
+    height: 800px !important; /* Reduced but still enough for video */
+    min-height: 800px !important;
+  }
+
+  .split-editor-panel {
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-management-header {
+    flex-direction: column;
+  }
+
+  .home-sections-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .preview-controls {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .home-preview-container {
+    min-height: 400px;
+    max-height: 60vh;
+  }
+
+  .home-preview-iframe {
+    min-height: 400px;
+  }
+
+  .home-management-split-layout {
+    grid-template-columns: 1fr;
+    gap: var(--admin-spacing-md);
+  }
+
+  .split-preview-panel {
+    height: 500px;
+    max-height: 60vh;
+  }
+
+  .split-preview-wrapper .hero {
+    height: 600px !important; /* Mobile-friendly height */
+    min-height: 600px !important;
+  }
+
+  .split-preview-panel .preview-header {
+    padding: var(--admin-spacing-md);
+  }
+
+  .split-editor-panel {
+    padding-right: 0;
+  }
+}
+

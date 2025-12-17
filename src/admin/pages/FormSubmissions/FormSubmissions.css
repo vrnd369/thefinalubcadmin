@@ -1,0 +1,272 @@
+.form-submissions-management {
+  padding: 24px;
+}
+
+.form-submissions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.submissions-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  border-color: #3B82F6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+.stat-card.stat-new {
+  border-left: 4px solid #EF4444;
+}
+
+.stat-card.stat-read {
+  border-left: 4px solid #3B82F6;
+}
+
+.stat-card.stat-archived {
+  border-left: 4px solid #6B7280;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.submissions-filter {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.submissions-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.submissions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.submission-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submission-card:hover {
+  border-color: #3B82F6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+.submission-card.selected {
+  border-color: #3B82F6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.submission-card.unread {
+  border-left: 4px solid #EF4444;
+  background: #FEF2F2;
+}
+
+.submission-card-header {
+  margin-bottom: 12px;
+}
+
+.submission-card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.submission-card-title h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.submission-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.submission-email {
+  color: #3B82F6;
+}
+
+.submission-date {
+  color: #9CA3AF;
+}
+
+.submission-card-body {
+  margin-bottom: 16px;
+}
+
+.submission-field {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.submission-field strong {
+  color: #111827;
+  margin-right: 8px;
+}
+
+.submission-message-preview {
+  margin: 4px 0 0 0;
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+.submission-card-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.status-select {
+  flex: 1;
+  max-width: 150px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge-new {
+  background: #FEE2E2;
+  color: #DC2626;
+}
+
+.status-badge-read {
+  background: #DBEAFE;
+  color: #2563EB;
+}
+
+.status-badge-archived {
+  background: #F3F4F6;
+  color: #6B7280;
+}
+
+.submission-details {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 24px;
+  position: sticky;
+  top: 24px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.submission-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.submission-details-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.submission-details-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-section h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-section p {
+  margin: 0;
+  font-size: 16px;
+  color: #111827;
+  line-height: 1.5;
+}
+
+.detail-section a {
+  color: #3B82F6;
+  text-decoration: none;
+}
+
+.detail-section a:hover {
+  text-decoration: underline;
+}
+
+.submission-message-full {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+  color: #111827;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+@media (min-width: 1024px) {
+  .submissions-container {
+    grid-template-columns: 1fr 400px;
+  }
+}
+

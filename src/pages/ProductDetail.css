@@ -1,0 +1,1489 @@
+.product-detail{
+  width:100%;
+  min-height:100vh;
+  background:#fff;
+  overflow-x:hidden;
+  max-width:100vw;
+  box-sizing:border-box;
+}
+.product-detail-section{
+  padding:140px 0 80px;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  overflow-x:hidden;
+}
+.product-detail-section .container{
+  width:100%;
+  max-width:1280px;
+  margin:0 auto;
+  padding:0 24px;
+  box-sizing:border-box;
+  overflow-x:hidden;
+}
+.product-detail-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:64px;
+  align-items:start;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+/* Image side */
+.product-image-wrapper{
+  position:sticky;
+  top:120px;
+  height:fit-content;
+  max-height:calc(100vh - 140px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 0;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  overflow:hidden;
+  z-index:1;
+}
+
+/* MAIN CHANGE: background card with radius behind pack image */
+.product-image-card{
+  background:#F5F5F5;
+  border-radius:32px;
+  border:1px solid #E5E7EB;
+  box-shadow:0 24px 60px rgba(15,23,42,0.06);
+  padding:48px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:586px;
+  position:relative;
+  box-sizing:border-box;
+}
+
+.product-image-card::before{display:none;}
+
+.product-image{
+  width:81%;
+  max-width:393px;
+  height:auto;
+  max-height:466px;
+  object-fit:contain;
+  display:block;
+  box-sizing:border-box;
+}
+
+/* Details */
+.product-details{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  position:relative;
+  max-height:calc(100vh - 140px);
+  overflow-y:auto;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+  padding-right:0;
+  padding-left:0;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  -ms-overflow-style:none;
+  align-items:flex-start;
+  text-align:left;
+}
+.product-details::-webkit-scrollbar{display:none}
+@supports (scrollbar-width: none) {
+  .product-details{scrollbar-width:none}
+}
+.product-details .tag{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin:0;
+  margin-bottom:16px;
+  width:104px;
+  height:33px;
+  min-height:33px;
+  padding:0;
+  background:#323790;
+  color:#FFFFFF;
+  opacity:100%;
+  border-radius:999px;
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:500;
+  font-size:10px;
+  line-height:21px;
+  letter-spacing:0.27em;
+  text-align:center;
+  white-space:nowrap;
+  box-sizing:border-box;
+  border:none;
+  flex-shrink:0;
+}
+.product-title{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:44px;
+  font-weight:600;
+  color:#111827;
+  margin:0;
+  margin-bottom:8px;
+  line-height:100%;
+  letter-spacing:-0.04em;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  width:376px;
+  box-sizing:border-box;
+  align-items:flex-start;
+  justify-content:flex-start;
+  text-align:left;
+}
+.product-title-sub{
+  font-family:'Ag H','Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:40px;
+  font-weight:700;
+  color:#111827;
+  line-height:100%;
+  margin:0;
+  margin-top:8px;
+  letter-spacing:-.01em;
+  text-align:left;
+}
+.product-description{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:400;
+  font-size:18px;
+  line-height:125%;
+  letter-spacing:-0.02em;
+  color:#999999;
+  opacity:100%;
+  margin:0;
+  margin-top:24px;
+  width:501px;
+  box-sizing:border-box;
+  text-align:left;
+}
+.product-description-2{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:400;
+  font-size:18px;
+  line-height:125%;
+  letter-spacing:-0.02em;
+  color:#999999;
+  opacity:100%;
+  margin:0;
+  margin-top:16px;
+  width:501px;
+  box-sizing:border-box;
+  text-align:left;
+}
+.divider{
+  height:1px;
+  background:rgba(0,0,0,0.2);
+  margin:24px 0 8px 0;
+  width:527px;
+  max-width:100%;
+  min-width:527px;
+  border:none;
+  box-sizing:border-box;
+  display:block;
+  flex-shrink:0;
+  opacity:1;
+}
+
+/* Sizes */
+.available-sizes{margin-top:0}
+.sizes-title{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:400;
+  font-size:18px;
+  line-height:125%;
+  letter-spacing:-0.02em;
+  color:#111827;
+  margin:0 0 16px;
+  width:121px;
+  height:23px;
+  box-sizing:border-box;
+  white-space:nowrap;
+}
+  .sizes-list{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    width:100%;
+  }
+.size-btn{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:500;
+  font-size:18px;
+  line-height:21px;
+  letter-spacing:-0.04em;
+  color:#111827;
+  background:#F5F5F5;
+  opacity:100%;
+  border-radius:999px;
+  width:92px;
+  height:45px;
+  padding:0;
+  border:none;
+  cursor:pointer;
+  transition:all .2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+}
+.size-btn:hover{background:#EAE9FF;border-color:#DAD7FF;color:#1F2A6B}
+.size-btn.active{background:#E5E7EB;border-color:#D1D5DB;color:#111827}
+.size-btn:active{transform:translateY(1px)}
+
+/* Nutrition table */
+.nutritional-info{margin-top:8px}
+.nutrition-title{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:400;
+  font-size:18px;
+  line-height:125%;
+  letter-spacing:-0.02em;
+  color:#191D23;
+  opacity:100%;
+  margin:0 0 16px;
+  width:272px;
+  height:23px;
+  box-sizing:border-box;
+}
+.nutrition-table{
+  width:527px;
+  table-layout:fixed;
+  border-collapse:collapse;
+  border-spacing:0;
+  font-size:14px;
+  border:none;
+}
+.nutrition-table thead{border-bottom:none}
+.nutrition-table th,.nutrition-table td{
+  padding:8px 12px;
+  vertical-align:middle;
+  border-right:1px solid rgba(0,0,0,0.1);
+}
+.nutrition-table th:first-child,.nutrition-table td:first-child{
+  padding-left:0;
+  padding-right:24px;
+  width:auto;
+  border-left:none;
+}
+.nutrition-table th:nth-child(2),.nutrition-table td:nth-child(2){
+  border-left:1px solid rgba(0,0,0,0.1);
+  padding-left:24px;
+  padding-right:24px;
+  color:#111827;
+  width:140px;
+  text-align:left;
+}
+.nutrition-table th:last-child,.nutrition-table td:last-child{
+  border-left:1px solid rgba(0,0,0,0.1);
+  padding-left:24px;
+  padding-right:0;
+  width:120px;
+  color:#6B7280;
+  text-align:left;
+  border-right:none;
+}
+.nutrition-table tbody tr{
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+.nutrition-table tbody tr:last-child{
+  border-bottom:none;
+}
+.nutrition-table td.nutrient{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:400;
+  font-size:18px;
+  line-height:140%;
+  letter-spacing:-0.02em;
+  color:#999999;
+  opacity:100%;
+  padding-left:0;
+  padding-right:24px;
+  text-align:left;
+  vertical-align:top;
+}
+.nutrition-table td.nutrient.sub{
+  padding-left:0;
+  color:#999999;
+  opacity:100%;
+  text-align:left;
+  vertical-align:top;
+}
+.nutrition-table td.nutrient-val{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:400;
+  font-size:18px;
+  line-height:140%;
+  letter-spacing:-0.02em;
+  color:#111827;
+  opacity:100%;
+  text-align:left;
+}
+.nutrition-table td.nutrient-dv{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:400;
+  font-size:18px;
+  line-height:140%;
+  letter-spacing:-0.02em;
+  color:#111827;
+  opacity:100%;
+  text-align:left;
+}
+.nutrition-table td,.nutrition-table th{word-break:keep-all;overflow-wrap:anywhere}
+
+/* Why Choose (bg image) */
+.why-choose-section{position:relative;min-height:100vh;height:100vh;padding:0;color:#fff;overflow:hidden;display:flex;align-items:center}
+.why-choose-overlay{position:absolute;inset:0;background:rgba(0, 0, 0, 0.6);z-index:1}
+.why-choose-section .container{position:relative;z-index:2;width:100%;padding:80px 24px}
+.why-choose-grid{display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:80px;align-items:flex-start}
+.why-choose-title{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:44px;
+  font-weight:600;
+  color:#FFFFFF;
+  margin:0;
+  line-height:100%;
+  letter-spacing:-0.04em;
+  width:555px;
+  height:107px;
+  display:flex;
+  align-items:center;
+  box-sizing:border-box;
+}
+
+/* Benefit block */
+.benefit-item{
+  display:flex;
+  flex-direction:column;
+  width:501px;
+  height:224px;
+  box-sizing:border-box;
+}
+.benefit-item:not(:last-child){
+  margin-bottom:32px;
+}
+.benefit-label{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:22px;
+  font-weight:700;
+  color:#FFFFFF;
+  margin:0 0 4px;
+  line-height:1.25;
+  letter-spacing:-0.02em;
+}
+.benefit-subtitle{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:22px;
+  font-weight:400;
+  color:#FFFFFF;
+  margin:0;
+  margin-bottom:16px;
+  letter-spacing:-0.02em;
+  line-height:1.25;
+}
+.benefit-text{
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.benefit-line{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:22px;
+  font-weight:400;
+  line-height:1.25;
+  letter-spacing:-0.02em;
+  color:#FFFFFF;
+  margin:0;
+  display:block;
+}
+
+/* Four Pillars */
+.four-pillars-section{padding:96px 0;background:#F5F6F8}
+.four-pillars-section .container{max-width:1280px;padding:0 24px;margin:0 auto}
+.pillars-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:120px;align-items:start}
+.pillars-left{
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+  margin-right: auto;
+  margin-left: -20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.pillars-left .tag{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-bottom:0;
+  width:96px;
+  height:33px;
+  padding:0;
+  background:rgba(50, 55, 144, 0.1); /* #323790 with 10% opacity */
+  border:none;
+  border-radius:999px;
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:500; /* Medium */
+  font-size:10px;
+  line-height:21px;
+  letter-spacing:0.27em; /* 27% */
+  color:#111827; /* Neutral/900 */
+  text-transform:uppercase;
+  box-sizing:border-box;
+  white-space:nowrap;
+}
+
+.pillars-left .tag::first-letter,
+.pillars-left .tag .tag-star {
+  display:inline-block;
+  width:12px;
+  height:12px;
+  font-size:12px;
+  line-height:12px;
+  text-align:center;
+  vertical-align:middle;
+  color:#1E3A8A !important; /* Blue/900 for star */
+}
+.pillars-title{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:44px;
+  font-weight:600;
+  color:#0F172A;
+  margin:0;
+  line-height:100%;
+  letter-spacing:-0.04em;
+}
+.pillars-right{
+  width:100%;
+  padding-top: 60px;
+}
+.pillars-grid-items{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 48px}
+.pillar-item{display:flex;flex-direction:column;gap:20px}
+.pillar-icon{width:64px;height:64px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pillar-icon img{width:64px;height:64px;object-fit:contain}
+.pillar-title{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:500; /* Medium */
+  font-size:24px;
+  line-height:120%; /* 120% */
+  letter-spacing:-0.02em; /* -2% */
+  color:#111827; /* Neutral/900 */
+  margin:0;
+  width:156px;
+  height:50px;
+  box-sizing:border-box;
+}
+.pillar-description{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:400; /* Regular */
+  font-size:20px;
+  line-height:140%; /* 140% */
+  letter-spacing:-0.02em; /* -2% */
+  color:#6B7280; /* Neutral/500 */
+  margin:0;
+  width:250px;
+  height:144px;
+  box-sizing:border-box;
+}
+
+/* Explore products row */
+.product-detail-products{background:#fff;padding:96px 0}
+.product-detail-products .container{max-width:1280px;padding:0 24px;margin:0 auto}
+.prod-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+.prod-title{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:44px;
+  font-weight:600;
+  color:#0f172a;
+  line-height:100%;
+  letter-spacing:-0.04em;
+  margin:0;
+}
+.prod-arrows{display:flex;gap:8px}
+.btn.icon-btn{width:48px;height:48px;border-radius:50%;border:1px solid #e8eaf0;background:#fff;color:#0f172a;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+
+/* SVG arrow icon styles */
+.prod-arrows .arrow-icon {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.prod-arrows .icon-btn.prev .arrow-icon {
+  stroke: #111827;
+}
+
+.prod-arrows .icon-btn.next .arrow-icon {
+  stroke: #6B7280;
+}
+.btn.icon-btn:hover{background:#f7f8fb;border-color:#d1d5db;transform:scale(1.05)}
+.btn.icon-btn:active{transform:scale(.95)}
+.brand-prod-row{--gap:24px;display:flex;gap:var(--gap);overflow-x:hidden;overflow-y:visible;scroll-behavior:smooth;padding:8px 0 2px}
+.no-user-scroll{touch-action:pan-y}
+
+/* Card itself */
+.brand-prod-card{
+  flex:0 0 418px;
+  width:418px;
+  min-width:418px;
+  height:428px;
+  min-height:428px;
+  display:flex;
+  flex-direction:column;
+  background:#f9fafb;
+  border-radius:32px;
+  border:1px solid #eef0f4;
+  overflow:hidden;
+  box-sizing:border-box;
+}
+
+/* Image container */
+.brand-prod-media{
+  width:100%;
+  height:320px;
+  min-height:320px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f9fafb;
+  padding:0;
+  box-sizing:border-box;
+  flex-shrink:0;
+  overflow:hidden;
+}
+
+.brand-prod-media img{
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+}
+
+/* Bottom strip */
+.brand-prod-body{
+  padding:20px 24px 24px 24px;
+  background:#f9fafb;
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  flex-shrink:0;
+  box-sizing:border-box;
+  height:108px;
+  min-height:108px;
+}
+
+.brand-prod-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  width:100%;
+}
+
+/* text block */
+.brand-prod-text-container{
+  flex:1 1 auto;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+}
+
+.brand-prod-name{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:22px;
+  font-weight:600;
+  line-height:100%;
+  letter-spacing:-0.06em;
+  color:#111827;
+  margin:0 0 4px 0;
+}
+
+.brand-prod-blurb{
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-size:14px;
+  font-weight:400;
+  line-height:140%;
+  letter-spacing:-0.02em;
+  color:#6B7280;
+  margin:0;
+}
+
+/* Know More pill */
+.chip-link{
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  width:102px;
+  min-width:102px;
+  max-width:102px;
+  height:39px;
+  min-height:39px;
+  max-height:39px;
+  padding:0;
+  border-radius:999px;
+  background:#f3f4f6;
+  color:#111827;
+  font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+  font-weight:600;
+  font-size:14px;
+  line-height:22.5px;
+  letter-spacing:-0.02em;
+  text-decoration:none;
+  border:1px solid #e5e7eb;
+  flex-shrink:0;
+  white-space:nowrap;
+  box-sizing:border-box;
+}
+
+/* Responsive */
+/* <= 1200: cards become fluid % width, maintain aspect ratio */
+@media (max-width:1200px){
+  .product-detail-grid{gap:56px;}
+  .product-image-card{
+    padding:40px 32px;
+    border-radius:30px;
+  }
+
+  .brand-prod-card{
+    flex:0 0 calc((100% - (2 * var(--gap))) / 3);
+    width:auto;
+    min-width:0;
+    height:auto;
+    min-height:0;
+    aspect-ratio:418 / 428;
+  }
+  .brand-prod-media{
+    height:auto;
+    min-height:0;
+    padding:0;
+    flex:1;
+    overflow:hidden;
+  }
+  .brand-prod-media img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+  }
+  .brand-prod-body{
+    height:auto;
+    min-height:0;
+  }
+}
+
+@media (max-width:1024px){
+  .product-detail-grid{gap:48px}
+  .product-image-card{
+    max-width:calc(586px * 0.9);
+    padding:36px 28px;
+    border-radius:28px;
+  }
+  .product-image{
+    max-width:calc(486px * 0.81);
+    max-height:calc(575px * 0.81);
+  }
+  .pillars-grid{gap:48px}
+  .pillars-grid-items{gap:24px}
+  .pillar-icon{width:56px;height:56px}
+  .pillar-icon img{width:56px;height:56px}
+  .why-choose-grid{gap:48px}
+  .why-choose-title{
+    font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+    font-size:40px;
+    font-weight:600;
+    line-height:100%;
+    letter-spacing:-0.04em;
+    color:#FFFFFF;
+    width:100%;
+    max-width:500px;
+    height:auto;
+    min-height:90px;
+  }
+  .benefit-item{
+    width:100%;
+    max-width:450px;
+    height:auto;
+    min-height:200px;
+  }
+  .benefit-label,
+  .benefit-subtitle,
+  .benefit-line{
+    font-size:21px;
+  }
+  /* 2 cards per row */
+  .brand-prod-card{
+    flex:0 0 calc((100% - var(--gap)) / 2);
+    max-width:418px;
+    width:418px;
+    min-width:418px;
+    height:428px;
+    min-height:428px;
+  }
+  .brand-prod-media{
+    height:280px;
+    min-height:280px;
+    padding:0;
+    overflow:hidden;
+  }
+  .brand-prod-media img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+  }
+  .brand-prod-body{
+    height:auto;
+    min-height:108px;
+  }
+}
+
+/* Tablet devices (768px - 1023px) */
+@media (min-width:768px) and (max-width:1023px){
+  .product-detail-section{
+    padding:130px 0 60px;
+    scroll-margin-top:80px;
+  }
+  .product-detail-section .container{
+    padding:0 32px;
+    position:relative;
+    z-index:1;
+  }
+  .product-detail-grid{
+    gap:52px;
+  }
+  .product-image-card{
+    max-width:calc(586px * 0.95);
+    padding:40px 32px;
+    border-radius:30px;
+  }
+  .product-image{
+    max-width:calc(486px * 0.855);
+    max-height:calc(575px * 0.855);
+  }
+  .product-title{
+    font-size:42px;
+    width:100%;
+    height:auto;
+  }
+  .product-title-sub{
+    font-size:38px;
+  }
+  .product-description,
+  .product-description-2{
+    font-size:17px;
+    width:100%;
+    height:auto;
+  }
+  .divider{
+    width:100%;
+    min-width:100%;
+  }
+  .sizes-title{
+    font-size:17px;
+  }
+  .size-btn{
+    font-size:17px;
+    width:88px;
+    height:43px;
+  }
+  .nutrition-title{
+    font-size:17px;
+  }
+  .nutrition-table{
+    width:100%;
+  }
+  .nutrition-table td{
+    font-size:17px;
+    padding:7px 10px;
+  }
+  .why-choose-section .container{
+    padding:70px 32px;
+  }
+  .why-choose-grid{
+    gap:52px;
+  }
+  .why-choose-title{
+    font-size:42px;
+    max-width:520px;
+    min-height:95px;
+  }
+  .benefit-item{
+    max-width:480px;
+    min-height:210px;
+  }
+  .benefit-label,
+  .benefit-subtitle,
+  .benefit-line{
+    font-size:21.5px;
+  }
+  .four-pillars-section .container{
+    padding:0 32px;
+  }
+  .pillars-grid{
+    gap:52px;
+  }
+  .pillars-title{
+    font-size:42px;
+  }
+  .pillar-icon{
+    width:60px;
+    height:60px;
+  }
+  .pillar-icon img{
+    width:60px;
+    height:60px;
+  }
+  .pillar-title{
+    font-size:23px;
+    width:100%;
+    height:auto;
+  }
+  .pillar-description{
+    font-size:19px;
+    width:100%;
+    height:auto;
+  }
+  .product-detail-products .container{
+    padding:0 32px;
+  }
+  .prod-title{
+    font-size:42px;
+  }
+  .brand-prod-card{
+    flex:0 0 calc((100% - var(--gap)) / 2);
+    max-width:400px;
+    width:400px;
+    min-width:400px;
+    height:410px;
+    min-height:410px;
+  }
+  .brand-prod-media{
+    height:270px;
+    min-height:270px;
+  }
+  .brand-prod-name{
+    font-size:21px;
+  }
+  .brand-prod-blurb{
+    font-size:13.5px;
+  }
+  .chip-link{
+    width:100px;
+    min-width:100px;
+    max-width:100px;
+    height:38px;
+    min-height:38px;
+    max-height:38px;
+    font-size:13.5px;
+  }
+}
+
+@media (max-width:768px){
+  .product-detail{
+    overflow-x:hidden;
+    width:100%;
+    max-width:100vw;
+    padding-top:0;
+    margin-top:0;
+  }
+  .product-detail-section{
+    padding:120px 0 60px;
+    margin-top:0;
+    scroll-margin-top:80px;
+  }
+  .product-detail-section .container{
+    padding:0 20px;
+    max-width:100%;
+    overflow-x:hidden;
+    position:relative;
+    z-index:1;
+  }
+  .product-detail-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+  }
+  .product-image-wrapper{
+    position:relative;
+    top:0;
+    max-height:none;
+    width:100%;
+    max-width:100%;
+    padding:0;
+    box-sizing:border-box;
+    overflow:hidden;
+    margin-bottom:32px;
+  }
+  .product-image-card{
+    max-width:100%;
+    width:100%;
+    padding:32px 24px;
+    border-radius:26px;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+  .product-image{
+    max-width:100%;
+    width:100%;
+    height:auto;
+    aspect-ratio:586/575;
+    max-height:575px;
+    object-fit:contain;
+    box-sizing:border-box;
+  }
+  .product-details{
+    max-height:none;
+    overflow-y:visible;
+    overflow-x:hidden;
+    padding-right:0;
+    padding-left:0;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    text-align:left !important;
+  }
+  .product-details .tag{
+    margin-left:0 !important;
+    margin-right:auto !important;
+  }
+  .product-title{
+    width:100% !important;
+    height:auto !important;
+    font-size:36px;
+    text-align:left !important;
+  }
+  .product-title-sub{
+    font-size:32px;
+    text-align:left !important;
+  }
+  .product-description,
+  .product-description-2{
+    width:100% !important;
+    height:auto !important;
+    text-align:left !important;
+    font-size:16px;
+  }
+  .divider{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+  .sizes-title{
+    width:100% !important;
+    height:auto !important;
+    white-space:normal;
+    text-align:left !important;
+  }
+  .nutrition-title{
+    width:100% !important;
+    height:auto !important;
+    text-align:left !important;
+  }
+  .nutritional-info{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .nutrition-table{
+    width:100% !important;
+    font-size:14px;
+    display:block;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .nutrition-table tbody{
+    display:table;
+    width:100%;
+    min-width:100%;
+  }
+  .nutrition-table td{
+    padding:6px 8px;
+    font-size:16px;
+    white-space:nowrap;
+  }
+  .nutrition-table td.nutrient{
+    min-width:120px;
+  }
+  .nutrition-table td.nutrient-val{
+    min-width:80px;
+  }
+  .nutrition-table td.nutrient-dv{
+    min-width:80px;
+  }
+
+  .why-choose-section{min-height:100vh;height:auto;padding:60px 0}
+  .why-choose-section .container{padding:60px 24px}
+  .why-choose-grid{grid-template-columns:1fr;gap:32px}
+  .why-choose-title{
+    font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+    font-size:36px;
+    font-weight:600;
+    line-height:100%;
+    letter-spacing:-0.04em;
+    color:#FFFFFF;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    min-height:80px;
+  }
+  .benefit-item{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    min-height:180px;
+  }
+  .benefit-label,
+  .benefit-subtitle,
+  .benefit-line{
+    font-size:20px;
+  }
+
+  .four-pillars-section{padding:60px 0}
+  .four-pillars-section .container{padding:0 20px}
+  .pillars-grid{grid-template-columns:1fr;gap:48px}
+  .pillars-left{
+    margin-left:0 !important;
+    text-align:left !important;
+  }
+  .pillars-left .tag{
+    margin-left:0 !important;
+    margin-right:auto !important;
+  }
+  .pillars-title{
+    text-align:left !important;
+    width:100% !important;
+  }
+  .pillars-right{
+    padding-top:0;
+    text-align:left !important;
+  }
+  .pillars-grid-items{grid-template-columns:1fr;gap:40px}
+  .pillar-item{
+    gap:16px;
+    text-align:left !important;
+  }
+  .pillar-title{
+    width:100% !important;
+    height:auto !important;
+    text-align:left !important;
+  }
+  .pillar-description{
+    width:100% !important;
+    height:auto !important;
+    text-align:left !important;
+  }
+  .pillar-icon{width:56px;height:56px}
+  .pillar-icon img{width:56px;height:56px}
+
+  .product-detail-products{padding:60px 0}
+  .product-detail-products .container{padding:0 20px}
+  .prod-head{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+  .prod-title{
+    text-align:left !important;
+    width:100%;
+    font-size:36px;
+  }
+  .prod-arrows{
+    align-self:flex-end;
+    width:104px;
+    height:40px;
+  }
+  .btn.icon-btn{
+    width:48px;
+    height:40px;
+    font-size:24px;
+  }
+  .brand-prod-row{--gap:20px}
+  .brand-prod-card{
+    flex:0 0 calc((100% - var(--gap)) / 2);
+    max-width:calc(50% - 10px);
+    width:100%;
+    min-width:0;
+    height:428px;
+    min-height:428px;
+  }
+  .brand-prod-media{
+    height:260px;
+    min-height:260px;
+    padding:0;
+    overflow:hidden;
+  }
+  .brand-prod-media img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+  }
+  .brand-prod-body{
+    height:auto;
+    min-height:108px;
+  }
+  .chip-link{
+    width:92px;
+    min-width:92px;
+    max-width:92px;
+    height:36px;
+    min-height:36px;
+    max-height:36px;
+    padding:0;
+    font-size:13px;
+  }
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .product-detail{
+    overflow-x:hidden;
+    width:100%;
+    max-width:100vw;
+    padding-top:0;
+    margin-top:0;
+  }
+  .product-detail-section{
+    padding:120px 0 48px;
+    margin-top:0;
+    scroll-margin-top:80px;
+  }
+  .product-detail-section .container{
+    padding:0 20px;
+    max-width:100%;
+    overflow-x:hidden;
+    position:relative;
+    z-index:1;
+  }
+  .product-image-wrapper{
+    position:relative;
+    top:auto;
+    max-height:none;
+    margin-bottom:32px;
+  }
+  .product-image-card{
+    padding:28px 20px;
+    max-width:100%;
+    width:100%;
+    border-radius:24px;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+  .product-image{
+    max-width:100%;
+    width:100%;
+    height:auto;
+    aspect-ratio:586/575;
+    object-fit:contain;
+    box-sizing:border-box;
+  }
+  .product-title{
+    font-size:32px;
+  }
+  .product-title-sub{
+    font-size:28px;
+  }
+  .product-description,
+  .product-description-2{
+    font-size:15px;
+  }
+  .size-btn{
+    font-size:16px;
+    width:80px;
+    height:40px;
+  }
+  .nutritional-info{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .nutrition-table{
+    width:100% !important;
+    display:block;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .nutrition-table tbody{
+    display:table;
+    width:100%;
+    min-width:100%;
+  }
+  .nutrition-table td{
+    font-size:15px;
+    padding:5px 6px;
+    white-space:nowrap;
+  }
+  .nutrition-table td.nutrient{
+    min-width:110px;
+  }
+  .nutrition-table td.nutrient-val{
+    min-width:70px;
+  }
+  .nutrition-table td.nutrient-dv{
+    min-width:70px;
+  }
+  .why-choose-section .container{padding:48px 20px}
+  .four-pillars-section{padding:48px 0}
+  .four-pillars-section .container{padding:0 20px}
+  .pillar-icon{width:52px;height:52px}
+  .pillar-icon img{width:52px;height:52px}
+  .pillar-title{
+    font-size:20px;
+  }
+  .pillar-description{
+    font-size:18px;
+  }
+  .product-detail-products{padding:48px 0}
+  .product-detail-products .container{padding:0 20px}
+  .prod-title{
+    font-size:32px;
+  }
+
+  .brand-prod-row{--gap:16px}
+  /* 1 card per row */
+  .brand-prod-card{
+    flex:0 0 100%;
+    width:100%;
+    max-width:418px;
+    height:428px;
+    min-height:428px;
+    margin:0 auto;
+  }
+  .brand-prod-media{
+    height:240px;
+    min-height:240px;
+    padding:0;
+    overflow:hidden;
+  }
+  .brand-prod-media img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+  }
+  .brand-prod-body{
+    height:auto;
+    min-height:108px;
+    padding:18px 20px 20px;
+  }
+  .brand-prod-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+  .brand-prod-text-container{
+    text-align:left !important;
+    width:100%;
+  }
+  .brand-prod-name{
+    font-size:18px;
+    text-align:left !important;
+  }
+  .brand-prod-blurb{
+    font-size:12px;
+    text-align:left !important;
+  }
+  .chip-link{
+    width:88px;
+    min-width:88px;
+    max-width:88px;
+    height:34px;
+    min-height:34px;
+    max-height:34px;
+    padding:0;
+    font-size:12px;
+    align-self:flex-start;
+  }
+}
+
+@media (max-width:480px){
+  .product-detail{
+    overflow-x:hidden;
+    width:100%;
+    max-width:100vw;
+    padding-top:0;
+    margin-top:0;
+  }
+  .product-detail-section{
+    padding:110px 0 40px;
+    margin-top:0;
+    scroll-margin-top:80px;
+  }
+  .product-detail-section .container{
+    padding:0 16px;
+    max-width:100%;
+    overflow-x:hidden;
+    position:relative;
+    z-index:1;
+  }
+  .product-detail-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .product-image-wrapper{
+    position:relative;
+    top:auto;
+    max-height:none;
+    margin-bottom:28px;
+  }
+  .product-image-card{
+    padding:20px 12px;
+    max-width:100%;
+    width:100%;
+    border-radius:22px;
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+  .product-image{
+    max-width:100%;
+    width:100%;
+    height:auto;
+    aspect-ratio:586/575;
+    object-fit:contain;
+    box-sizing:border-box;
+  }
+  .product-title{
+    font-size:28px;
+  }
+  .product-title-sub{
+    font-size:24px;
+  }
+  .product-description,
+  .product-description-2{
+    font-size:14px;
+  }
+  .size-btn{
+    font-size:15px;
+    width:75px;
+    height:38px;
+  }
+  .nutritional-info{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .nutrition-table{
+    width:100% !important;
+    display:block;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .nutrition-table tbody{
+    display:table;
+    width:100%;
+    min-width:100%;
+  }
+  .nutrition-table td{
+    font-size:14px;
+    padding:4px 4px;
+    white-space:nowrap;
+  }
+  .nutrition-table td.nutrient{
+    min-width:100px;
+    font-size:14px;
+  }
+  .nutrition-table td.nutrient-val{
+    min-width:60px;
+    font-size:14px;
+  }
+  .nutrition-table td.nutrient-dv{
+    min-width:60px;
+    font-size:14px;
+  }
+  .why-choose-section .container{padding:40px 16px}
+  .why-choose-title{
+    font-family:'Ag H','Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+    font-size:28px;
+    line-height:1.0;
+    color:#FFFFFF;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    min-height:70px;
+    text-align:left !important;
+  }
+  .benefit-item{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    min-height:160px;
+    text-align:left !important;
+  }
+  .benefit-label,
+  .benefit-subtitle,
+  .benefit-line{
+    font-size:18px;
+    text-align:left !important;
+  }
+  .four-pillars-section{padding:40px 0}
+  .four-pillars-section .container{padding:0 16px}
+  .prod-title{
+    font-size:28px;
+  }
+  .pillar-icon{width:48px;height:48px}
+  .pillar-icon img{width:48px;height:48px}
+  .pillar-title{
+    font-size:18px;
+  }
+  .pillar-description{
+    font-size:16px;
+  }
+  .product-detail-products{padding:40px 0}
+  .product-detail-products .container{padding:0 16px}
+  .brand-prod-card{
+    max-width:100%;
+    width:100%;
+    height:auto;
+    min-height:380px;
+    aspect-ratio:418 / 428;
+  }
+  .brand-prod-media{
+    height:auto;
+    min-height:200px;
+    flex:1;
+    padding:0;
+    overflow:hidden;
+  }
+  .brand-prod-media img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+  }
+  .brand-prod-body{
+    height:auto;
+    min-height:100px;
+  }
+  .brand-prod-name{font-size:16px}
+  .brand-prod-blurb{font-size:11px}
+  .chip-link{
+    width:82px;
+    min-width:82px;
+    max-width:82px;
+    height:32px;
+    min-height:32px;
+    max-height:32px;
+    padding:0;
+    font-size:11.5px;
+  }
+}

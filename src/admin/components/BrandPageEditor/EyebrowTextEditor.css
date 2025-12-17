@@ -1,0 +1,114 @@
+.eyebrow-text-editor {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.eyebrow-dropdown-container {
+  position: relative;
+}
+
+.eyebrow-dropdown-btn {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition: all 0.2s;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eyebrow-dropdown-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.eyebrow-dropdown-btn:active {
+  background: #e2e8f0;
+}
+
+.eyebrow-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  min-width: 280px;
+  max-width: 320px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.eyebrow-dropdown-header {
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #f1f5f9;
+  background: #f8fafc;
+  border-radius: 8px 8px 0 0;
+}
+
+.eyebrow-dropdown-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  padding: 8px;
+}
+
+.eyebrow-dropdown-item {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.eyebrow-dropdown-item:hover {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  transform: scale(1.1);
+}
+
+.eyebrow-dropdown-item:active {
+  background: #e2e8f0;
+  transform: scale(0.95);
+}
+
+/* Scrollbar styling for dropdown */
+.eyebrow-dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.eyebrow-dropdown-menu::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.eyebrow-dropdown-menu::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.eyebrow-dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

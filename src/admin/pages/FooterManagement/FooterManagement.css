@@ -1,0 +1,395 @@
+/* ============================================
+   FOOTER MANAGEMENT PAGE
+   ============================================ */
+
+.footer-management {
+  width: 100%;
+  max-width: 100%;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  min-height: 100vh;
+  padding: var(--admin-spacing-lg);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.footer-management .admin-heading-1 {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+}
+
+/* Page Header */
+.footer-management-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--admin-spacing-2xl);
+  gap: var(--admin-spacing-lg);
+  padding: var(--admin-spacing-xl) 0;
+  border-bottom: 2px solid #f1f5f9;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--admin-spacing-md);
+  flex-shrink: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.header-actions .admin-btn {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+}
+
+.header-actions .admin-btn-primary.has-changes {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Split Layout */
+.footer-management-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--admin-spacing-xl);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.split-preview-panel {
+  position: sticky;
+  top: var(--admin-spacing-lg);
+  height: fit-content;
+  max-height: calc(100vh - var(--admin-spacing-xl));
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--admin-spacing-lg);
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 12px 12px 0 0;
+}
+
+.preview-controls {
+  display: flex;
+  gap: var(--admin-spacing-sm);
+}
+
+.split-preview-container {
+  padding: 0;
+  overflow-x: auto !important; /* Enable horizontal scrolling */
+  overflow-y: auto;
+  flex: 1;
+  background: #f8fafc;
+  min-height: 400px;
+  position: relative;
+  /* Hide horizontal scrollbar but keep functionality */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: transparent transparent; /* Firefox - hide horizontal */
+}
+
+/* Override any overflow-x: hidden from parent styles */
+.split-preview-container * {
+  overflow-x: visible !important;
+}
+
+/* Hide horizontal scrollbar in WebKit browsers (Chrome, Safari, Edge) */
+.split-preview-container::-webkit-scrollbar:horizontal {
+  height: 0px; /* Make horizontal scrollbar invisible */
+  background: transparent;
+}
+
+.split-preview-container::-webkit-scrollbar-thumb:horizontal {
+  background: transparent;
+}
+
+/* Footer preview wrapper - ensures footer renders at full width */
+.footer-preview-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: auto !important; /* Enable horizontal scrolling */
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  /* Hide horizontal scrollbar but keep functionality */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: transparent transparent; /* Firefox - hide horizontal */
+}
+
+/* Override any overflow-x: hidden from parent styles */
+.footer-preview-wrapper * {
+  overflow-x: visible !important;
+}
+
+/* Hide horizontal scrollbar in WebKit browsers */
+.footer-preview-wrapper::-webkit-scrollbar:horizontal {
+  height: 0px; /* Make horizontal scrollbar invisible */
+  background: transparent;
+}
+
+.footer-preview-wrapper::-webkit-scrollbar-thumb:horizontal {
+  background: transparent;
+}
+
+.footer-preview-wrapper .footer {
+  margin: 0;
+  padding: 0;
+  width: max-content !important; /* Allow content to expand beyond container */
+  min-width: 100%; /* At least fill container */
+  max-width: none !important; /* Remove max-width restriction */
+  overflow-x: visible !important; /* Allow horizontal overflow */
+}
+
+.footer-preview-wrapper .footer .container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 72px 40px 24px;
+  box-sizing: border-box;
+}
+
+/* Scrollbar styling for split preview - Vertical scrollbar only */
+.split-preview-container::-webkit-scrollbar,
+.footer-preview-wrapper::-webkit-scrollbar {
+  width: 8px; /* Vertical scrollbar width */
+  height: 0px; /* Horizontal scrollbar height (hidden) */
+}
+
+.split-preview-container::-webkit-scrollbar:vertical,
+.footer-preview-wrapper::-webkit-scrollbar:vertical {
+  width: 8px; /* Show vertical scrollbar */
+}
+
+.split-preview-container::-webkit-scrollbar:horizontal,
+.footer-preview-wrapper::-webkit-scrollbar:horizontal {
+  height: 0px; /* Hide horizontal scrollbar */
+  display: none; /* Additional hiding for some browsers */
+}
+
+.split-preview-container::-webkit-scrollbar-track,
+.footer-preview-wrapper::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.split-preview-container::-webkit-scrollbar-thumb,
+.footer-preview-wrapper::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.split-preview-container::-webkit-scrollbar-thumb:hover,
+.footer-preview-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.split-editor-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--admin-spacing-lg);
+}
+
+.footer-editor {
+  padding: var(--admin-spacing-xl);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  max-height: calc(100vh - var(--admin-spacing-xl));
+  overflow-y: auto;
+}
+
+/* Form Sections */
+.form-section {
+  margin-bottom: var(--admin-spacing-xl);
+  padding-bottom: var(--admin-spacing-lg);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.form-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: var(--admin-spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--admin-spacing-sm);
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: var(--admin-spacing-sm);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--admin-spacing-md);
+}
+
+.form-group {
+  margin-bottom: var(--admin-spacing-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--admin-spacing-md);
+}
+
+.form-hint {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 4px;
+  display: block;
+}
+
+.section-save-button {
+  margin-top: var(--admin-spacing-md);
+  padding-top: var(--admin-spacing-md);
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.section-save-button .admin-btn {
+  min-width: 150px;
+}
+
+/* Array Item Editor */
+.array-item-editor {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: var(--admin-spacing-md);
+  margin-bottom: var(--admin-spacing-md);
+}
+
+.array-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--admin-spacing-md);
+  padding-bottom: var(--admin-spacing-sm);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.array-item-header h5 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  margin: 0;
+}
+
+/* Navigation Links Preview */
+.navigation-links-preview {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: var(--admin-spacing-md);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.nav-link-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--admin-spacing-sm);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-link-item:last-child {
+  border-bottom: none;
+}
+
+.nav-link-label {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.nav-link-path {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-family: monospace;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .footer-management-split-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .split-preview-panel {
+    position: relative;
+    top: 0;
+    max-height: 600px;
+  }
+
+  .footer-editor {
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-management {
+    padding: var(--admin-spacing-md);
+  }
+
+  .footer-management-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--admin-spacing-sm);
+  }
+}

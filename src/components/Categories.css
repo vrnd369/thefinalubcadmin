@@ -1,0 +1,823 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* ----------------------------------------------
+   Google Sans stack — consistent across all cards
+   Use local "Google Sans" / "Product Sans" if available,
+   otherwise fall back to common system sans-serifs.
+------------------------------------------------ */
+:root{
+  --gs: "Google Sans","Product Sans","Inter","Roboto","Helvetica Neue",Arial,sans-serif;
+
+  /* Uniform sizes for ALL cards */
+  --cat-title-size: 24px;
+  --cat-subtitle-size: 16px;
+  --cat-knowmore-size: 14px;
+}
+
+.categories-section{
+  background: #FFFFFF;
+  padding: 24px 0 80px;
+  margin-bottom: 0;
+  font-family: var(--gs);
+}
+
+.categories-section .container{ text-align: left; }
+
+.categories-section .tag{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-left: 0;
+  margin-right: auto;
+  margin-bottom: 28px;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 10px;
+  line-height: 21px;
+  letter-spacing: 0.4em; /* Increased gap between alphabets */
+  color: #FFFFFF;
+  opacity: 100%;
+  background: #323790; /* Blue/500 */
+  width: 158px;
+  height: 33px;
+  padding: 0;
+  border-radius: 999px;
+  border: none;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.categories-section h2{
+  text-align: left;
+  margin-bottom: 24px;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: #111827;
+}
+
+.categories-section h2 .playfair-text{
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 100%;
+  letter-spacing: -0.07em;
+  color: #111827;
+}
+
+/* ---- Categories Buttons ---- */
+.categories-buttons-wrapper{
+  display: flex;
+  flex-direction: row; /* Horizontal flow */
+  flex-wrap: wrap;
+  gap: 8px; /* Gap: 8 units */
+  align-items: flex-start; /* Top-left alignment */
+  justify-content: flex-start;
+  width: fit-content; /* Hug width (1029) */
+  max-width: 1029px;
+  min-height: 74px; /* Hug height (74) */
+  padding: 8px; /* Padding: 8 units (horizontal and vertical) */
+  margin-top: 8px;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+}
+
+.category-button{
+  background: #FFFFFF; /* White background for inactive state */
+  color: #737373; /* Neutral/500 - dark gray text */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  padding: 0 18px;
+  border-radius: 999px; /* Pill-shaped */
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -1.5px;
+  border: 1px solid #E5E7EB; /* Light gray border for unselected state */
+  box-sizing: border-box;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+  min-width: max-content; /* Compatible alternative to fit-content */
+}
+
+.category-button:hover{
+  background: #F9FAFB;
+  border-color: #D1D5DB;
+}
+
+.category-button.active{
+  background: #EAE9FF; /* Light lavender-gray for active state */
+  color: #737373; /* Dark gray text */
+  border: 1px solid #EAE9FF; /* Match border to background */
+}
+
+.category-button.active:hover{
+  background: #DAD7FF;
+  border-color: #DAD7FF;
+}
+
+/* ---- Brand Filter Buttons ---- */
+.brands-buttons-wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 100%;
+  min-height: 74px;
+  padding: 8px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox - hide scrollbar */
+  -ms-overflow-style: none; /* IE and Edge - hide scrollbar */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.brands-buttons-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.brand-button{
+  background: #FFFFFF;
+  color: #737373;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 58px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: -1.5px;
+  border: 1px solid #E5E7EB;
+  box-sizing: border-box;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: fit-content;
+  min-width: max-content;
+}
+
+.brand-button:hover{
+  background: #F9FAFB;
+  border-color: #D1D5DB;
+}
+
+.brand-button.active{
+  background: #EAE9FF;
+  color: #737373;
+  border: 1px solid #EAE9FF;
+}
+
+.brand-button.active:hover{
+  background: #DAD7FF;
+  border-color: #DAD7FF;
+}
+
+/* Ensure product cards wrap and stay within viewport on categories/products pages */
+.categories-section .brand-prod-row {
+  flex-wrap: wrap;
+  row-gap: var(--gap, 16px);
+  overflow: visible;
+  justify-content: flex-start;
+}
+
+.categories-section .brand-prod-card {
+  flex: 1 1 300px !important;
+  max-width: 360px !important;
+  min-width: 260px !important;
+  width: 100% !important;
+}
+
+.brand-button-icon{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ---- Grid ---- */
+.cards{ margin-top: 32px; }
+
+.grid{
+  display: grid;
+  gap: 24px;
+}
+.grid-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 per row on desktop */
+}
+
+/* ---- Category Card ---- */
+.category-card{
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+  color: inherit;
+}
+.category-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.category-card-head{
+  padding: 28px 24px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 178px;
+  background: #f3f4f6;
+  border-radius: 24px 24px 0 0;
+}
+.category-card-head img{
+  max-width: 73%;
+  max-height: 162px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+.category-card-bar{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px 24px;
+  background: #ffffff;
+}
+
+.category-text{ 
+  min-width: 0;
+  flex: 1;
+  text-align: left;
+}
+
+.category-title{
+  margin: 0 0 8px 0;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: -0.06em;
+  color: #111827;
+  text-align: left;
+}
+
+.category-subtitle{
+  margin: 0;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #6B7280;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.know-more-btn{
+  appearance: none;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22.5px;
+  letter-spacing: -0.19px;
+  color: #111827;
+  cursor: pointer;
+  transition: filter .18s ease, background .18s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-start;
+  text-decoration: none;
+  display: inline-block;
+}
+.category-card:hover .know-more-btn{
+  filter: brightness(0.9);
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+/* Products List Section */
+.products-list-section{
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.products-list-title{
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: #111827;
+  margin: 0 0 32px 0;
+  text-align: left;
+}
+
+.categories-section .btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 1278px;
+  height: 47px;
+  padding: 0;
+  border-radius: 999px;
+  border: 0;
+  background: #F3F4F6; /* Light gray background */
+  color: #374151; /* Dark gray text */
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 500; /* Medium weight */
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  box-shadow: none;
+  outline: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.categories-section .btn:hover{
+  background: #E5E7EB; /* Slightly darker gray on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 1200px){
+  .grid-3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .category-card-head{ min-height: 146px; }
+}
+
+@media (max-width: 1024px){
+  .categories-section{ padding: 72px 0; }
+  .categories-section .tag{ 
+    width: 158px;
+    height: 33px;
+    padding: 0;
+    font-size: 10px;
+    line-height: 21px;
+    letter-spacing: 0.4em;
+    margin-bottom: 24px;
+  }
+  .categories-section h2{ 
+    margin-bottom: 20px;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+  }
+  .categories-section h2 .playfair-text{
+    font-size: 40px;
+  }
+  .cards{ margin-top: 28px; }
+  .center{ margin-top: 28px; }
+  .products-list-section{
+    margin-top: 40px;
+    padding-top: 40px;
+  }
+  .products-list-title{
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  .categories-section .btn{
+    width: 100%;
+    max-width: 1278px;
+    height: 47px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+  .brands-buttons-wrapper{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 74px;
+    gap: 8px;
+    padding: 8px;
+    margin-bottom: 16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .brand-button{
+    height: 58px;
+    padding: 0 18px;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+  }
+  
+  .brand-button-icon{
+    width: 24px;
+    height: 24px;
+  }
+  
+  .categories-buttons-wrapper{
+    width: 100%;
+    max-width: 1029px;
+    height: auto;
+    min-height: 74px;
+    gap: 8px;
+    padding: 8px;
+  }
+  
+  .category-button{
+    height: 58px;
+    padding: 0 18px;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+  }
+  .grid-3{ grid-template-columns: repeat(2, minmax(0, 1fr)); } /* 2/row on tablet */
+  .category-card-head{ min-height: 154px; }
+  /* Slightly scale down globally but keep uniformity */
+  :root{
+    --cat-title-size: 22px;
+    --cat-subtitle-size: 15px;
+    --cat-knowmore-size: 14px;
+  }
+  .category-title{
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: -0.06em;
+  }
+}
+
+/* Tablet devices (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .categories-section {
+    padding: 80px 0;
+  }
+
+  .categories-section .container {
+    padding: 0 32px;
+  }
+
+  .categories-section .tag {
+    width: 160px;
+    height: 32px;
+    font-size: 9.8px;
+    line-height: 20.5px;
+    margin-bottom: 22px;
+  }
+
+  .categories-section h2 {
+    font-size: 42px;
+    margin-bottom: 22px;
+  }
+
+  .categories-section h2 .playfair-text {
+    font-size: 42px;
+  }
+
+  .cards {
+    margin-top: 30px;
+  }
+
+  .center {
+    margin-top: 30px;
+  }
+
+  .products-list-section {
+    margin-top: 44px;
+    padding-top: 44px;
+  }
+
+  .products-list-title {
+    font-size: 25px;
+    margin-bottom: 26px;
+  }
+
+  .categories-section .btn {
+    height: 48px;
+    font-size: 14.5px;
+    line-height: 21.5px;
+  }
+
+  .brands-buttons-wrapper,
+  .categories-buttons-wrapper {
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .brands-buttons-wrapper {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .brand-button,
+  .category-button {
+    height: 60px;
+    padding: 0 20px;
+    font-size: 18.5px;
+  }
+
+  .brand-button-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .category-card-head {
+    min-height: 195px;
+  }
+
+  :root {
+    --cat-title-size: 22.5px;
+    --cat-subtitle-size: 15.5px;
+    --cat-knowmore-size: 14.5px;
+  }
+
+  .category-title {
+    font-size: 20.5px;
+  }
+}
+
+@media (max-width: 768px){
+  .categories-section{ 
+    padding: 56px 0;
+    margin-bottom: 48px;
+  }
+  .products-list-section{
+    margin-top: 32px;
+    padding-top: 32px;
+  }
+  .products-list-title{
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .categories-section .tag{ 
+    width: 158px;
+    height: 33px;
+    padding: 0;
+    font-size: 10px;
+    line-height: 21px;
+    letter-spacing: 0.4em;
+    margin-bottom: 20px;
+  }
+  .categories-section h2{ 
+    font-size: 32px; 
+    margin-bottom: 16px; 
+    line-height: 100%;
+    letter-spacing: -0.04em;
+  }
+  .categories-section h2 .playfair-text{
+    font-size: 32px;
+  }
+  .cards{ margin-top: 20px; }
+  .center{ margin-top: 20px; }
+  .categories-section .btn{
+    width: 100%;
+    max-width: 1278px;
+    height: 47px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+  .brands-buttons-wrapper{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 56px;
+    gap: 10px;
+    padding: 8px 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .brand-button{
+    height: 32px;
+    padding: 0 14px;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+    flex-shrink: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .brand-button-icon{
+    width: 20px;
+    height: 20px;
+  }
+  
+  .categories-buttons-wrapper{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 56px;
+    gap: 10px;
+    padding: 8px 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 8px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    box-sizing: border-box;
+  }
+  
+  .category-button{
+    height: 32px;
+    padding: 0 14px;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+    flex-shrink: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .grid-3{ grid-template-columns: 1fr; } /* 1/row on mobile */
+  .category-card-head{ min-height: 162px; }
+  .category-card-bar{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .know-more-btn{
+    align-self: flex-start;
+  }
+  /* Mobile uniform sizes */
+  :root{
+    --cat-title-size: 20px;
+    --cat-subtitle-size: 14px;
+    --cat-knowmore-size: 13px;
+  }
+  .category-title{
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.06em;
+  }
+}
+
+@media (max-width: 480px){
+  .categories-section{ 
+    padding: 48px 0;
+    margin-bottom: 40px;
+  }
+  .categories-section .tag{ 
+    width: 158px;
+    height: 33px;
+    padding: 0;
+    font-size: 10px;
+    line-height: 21px;
+    letter-spacing: 0.4em;
+    margin-bottom: 16px;
+    gap: 8px;
+  }
+  .categories-section h2{ 
+    font-size: 28px; 
+    margin-bottom: 14px; 
+    line-height: 100%;
+    letter-spacing: -0.04em;
+  }
+  .categories-section h2 .playfair-text{
+    font-size: 28px;
+  }
+  .cards{ margin-top: 16px; }
+  .center{ margin-top: 16px; }
+  .categories-section .btn{
+    width: 100%;
+    max-width: 1278px;
+    height: 47px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+  }
+  .category-title{
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: -0.06em;
+  }
+  .brands-buttons-wrapper{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 74px;
+    gap: 8px;
+    padding: 8px 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .brand-button{
+    height: 58px;
+    padding: 0 18px;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+    flex-shrink: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .brand-button-icon{
+    width: 24px;
+    height: 24px;
+  }
+  
+  .categories-buttons-wrapper{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 74px;
+    gap: 8px;
+    padding: 8px 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 8px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    box-sizing: border-box;
+  }
+  
+  .category-button{
+    height: 58px;
+    padding: 0 18px;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -1.5px;
+    font-weight: 500;
+    flex-shrink: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .category-card-bar{
+    padding: 18px 20px 20px;
+  }
+}

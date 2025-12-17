@@ -1,0 +1,477 @@
+/* Image Selector Component */
+.image-selector {
+  width: 100%;
+}
+
+.image-selector-input-group {
+  display: flex;
+  gap: var(--admin-spacing-sm);
+  margin-bottom: var(--admin-spacing-sm);
+}
+
+.image-selector-input-group .admin-input {
+  flex: 1;
+}
+
+.image-preview {
+  margin-top: var(--admin-spacing-sm);
+  padding: var(--admin-spacing-sm);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  background-color: var(--admin-bg);
+  display: inline-block;
+}
+
+.image-preview {
+  position: relative;
+}
+
+.image-preview img {
+  width: 200px;
+  height: 150px;
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 150px;
+  max-height: 150px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  border-radius: var(--admin-radius-sm);
+}
+
+/* Circular preview for icons */
+.image-preview.circular-preview {
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  max-width: 120px;
+  min-height: 120px;
+  max-height: 120px;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+}
+
+.image-preview.circular-preview img {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  overflow: hidden;
+  clip-path: circle(50% at 50% 50%) !important;
+  -webkit-clip-path: circle(50% at 50% 50%) !important;
+  aspect-ratio: 1 / 1 !important;
+  display: block !important;
+  background: transparent;
+}
+
+/* Modal */
+.image-selector-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: var(--admin-spacing-lg);
+  backdrop-filter: blur(2px);
+}
+
+.image-selector-modal-content {
+  background: var(--admin-bg-secondary);
+  border-radius: var(--admin-radius-md);
+  width: 100%;
+  max-width: 900px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--admin-shadow-lg);
+  position: relative;
+  z-index: 10001;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--admin-spacing-lg);
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--admin-text-light);
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--admin-transition);
+}
+
+.modal-close-btn:hover {
+  color: var(--admin-text);
+}
+
+.modal-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--admin-border);
+  padding: 0 var(--admin-spacing-lg);
+}
+
+.tab-btn {
+  padding: var(--admin-spacing-md) var(--admin-spacing-lg);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--admin-text-light);
+  transition: var(--admin-transition);
+}
+
+.tab-btn:hover {
+  color: var(--admin-text);
+}
+
+.tab-btn.active {
+  color: var(--admin-primary);
+  border-bottom-color: var(--admin-primary);
+}
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--admin-spacing-lg);
+}
+
+.upload-section {
+  margin-bottom: var(--admin-spacing-lg);
+  padding-bottom: var(--admin-spacing-lg);
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.upload-actions {
+  display: flex;
+  gap: var(--admin-spacing-md);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--admin-spacing-md) var(--admin-spacing-lg);
+  background-color: var(--admin-primary);
+  color: white;
+  border-radius: var(--admin-radius);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--admin-transition);
+  border: none;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.upload-btn:hover:not(.uploading) {
+  background-color: var(--admin-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--admin-shadow-md);
+}
+
+.upload-btn:active:not(.uploading) {
+  transform: translateY(0);
+}
+
+.upload-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.upload-btn.uploading {
+  background-color: var(--admin-secondary);
+  cursor: wait;
+  pointer-events: none;
+}
+
+.upload-hint {
+  color: var(--admin-text-muted);
+  font-style: italic;
+  margin-top: var(--admin-spacing-md);
+}
+
+.delete-all-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--admin-spacing-md) var(--admin-spacing-lg);
+  background-color: #ef4444;
+  color: white;
+  border-radius: var(--admin-radius);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--admin-transition);
+  border: none;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+}
+
+.delete-all-btn:hover:not(:disabled) {
+  background-color: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: var(--admin-shadow-md);
+}
+
+.delete-all-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.delete-all-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.select-all-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--admin-spacing-md) var(--admin-spacing-lg);
+  background-color: var(--admin-secondary);
+  color: white;
+  border-radius: var(--admin-radius);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--admin-transition);
+  border: none;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+}
+
+.select-all-btn:hover:not(:disabled) {
+  background-color: #4b5563;
+  transform: translateY(-1px);
+  box-shadow: var(--admin-shadow-md);
+}
+
+.select-all-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.select-all-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.delete-selected-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--admin-spacing-md) var(--admin-spacing-lg);
+  background-color: #f59e0b;
+  color: white;
+  border-radius: var(--admin-radius);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--admin-transition);
+  border: none;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+}
+
+.delete-selected-btn:hover:not(:disabled) {
+  background-color: #d97706;
+  transform: translateY(-1px);
+  box-shadow: var(--admin-shadow-md);
+}
+
+.delete-selected-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.delete-selected-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--admin-spacing-md);
+}
+
+.image-item {
+  cursor: pointer;
+  border: 2px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  padding: var(--admin-spacing-sm);
+  transition: var(--admin-transition);
+  text-align: center;
+  position: relative;
+}
+
+.image-item:hover {
+  border-color: var(--admin-primary);
+  box-shadow: var(--admin-shadow-md);
+  transform: translateY(-2px);
+}
+
+.image-item.selected {
+  border-color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+
+.image-item-wrapper {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  margin-bottom: var(--admin-spacing-xs);
+}
+
+.image-item-wrapper:hover .image-delete-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-checkbox {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 11;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  padding: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.image-checkbox input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: #f59e0b;
+  margin: 0;
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  max-height: 120px;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: var(--admin-radius-sm);
+  display: block;
+}
+
+.image-delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: rgba(239, 68, 68, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: var(--admin-transition);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  line-height: 1;
+}
+
+.image-delete-btn:hover {
+  background-color: rgba(220, 38, 38, 1);
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.image-delete-btn:active {
+  transform: scale(0.95);
+}
+
+/* Circular icon items in grid */
+.icon-grid .image-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50% !important;
+  position: relative;
+}
+
+.icon-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50% !important;
+}
+
+.icon-item .image-item-wrapper {
+  height: 100%;
+  aspect-ratio: 1;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.icon-item img {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  clip-path: circle(50% at 50% 50%) !important;
+  -webkit-clip-path: circle(50% at 50% 50%) !important;
+  aspect-ratio: 1 / 1 !important;
+  display: block !important;
+  background: transparent;
+}
+
+.image-name {
+  font-size: 0.75rem;
+  color: var(--admin-text-light);
+  margin: 0;
+  word-break: break-word;
+}

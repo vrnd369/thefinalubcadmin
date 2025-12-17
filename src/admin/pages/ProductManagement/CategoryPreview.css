@@ -1,0 +1,55 @@
+/* Category Preview Styles */
+.category-preview-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.category-preview-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.category-preview-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Make category card larger in preview */
+.category-preview-wrapper .grid.cards {
+  grid-template-columns: 1fr !important;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-preview-wrapper .category-card {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Ensure preview content is scrollable */
+.category-preview-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.category-preview-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.category-preview-wrapper::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.category-preview-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+

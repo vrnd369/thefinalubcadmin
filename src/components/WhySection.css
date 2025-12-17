@@ -1,0 +1,383 @@
+/* =========================
+   WHY SECTION (fixed + improved)
+   ========================= */
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+   .why-section {
+     background: #F3F4F6;           /* light grey like ref */
+     padding: 96px 0 80px;
+     width: 100%;
+     max-width: 100vw;
+   }
+   
+   .why-section .container {
+     max-width: 1280px;             /* match navbar container width */
+     margin: 0 auto;
+     padding: 0 24px;
+     text-align: left;
+   }
+   
+   /* Tag pill */
+   .tag.why-tag {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     gap: 6px;
+     width: 100px;
+     height: 33px;
+     padding: 0;
+     border-radius: 999px;
+     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+     font-weight: 500; /* Medium */
+     font-size: 10px;
+     line-height: 21px;
+     letter-spacing: 0.4em; /* Increased gap between alphabets to match reference */
+     background: #323790; /* Blue/900 */
+     color: #FFFFFF;
+     opacity: 100%;
+     border: none;
+     margin-bottom: 24px;
+     margin-left: 0;
+     margin-right: auto;
+     white-space: nowrap;
+     box-sizing: border-box;
+     text-align: center;
+   }
+   
+   /* Desktop-only alignment fixes for perfect tag alignment */
+   @media (min-width: 769px) {
+     /* Ensure container has exact same padding as OUR BRANDS section */
+     .why-section .container {
+       max-width: 1280px !important;
+       margin: 0 auto !important;
+       padding: 0 24px !important;
+       padding-left: 24px !important;
+       padding-right: 24px !important;
+       text-align: left !important;
+       box-sizing: border-box !important;
+     }
+   
+     /* Force tag to align exactly with container padding-left */
+     .tag.why-tag {
+       margin-left: 0 !important;
+       margin-right: auto !important;
+       margin-top: 0 !important;
+       padding-left: 0 !important;
+       padding-right: 0 !important;
+       box-sizing: border-box !important;
+       display: inline-flex !important;
+       position: relative !important;
+       left: 0 !important;
+     }
+   }
+   
+   /* Heading + subtitle */
+   .why-heading {
+     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+     font-weight: 600;
+     font-size: 56px;
+     line-height: 100%;
+     letter-spacing: -0.04em;
+     color: #171717;
+     margin: 0 0 18px 0;
+   }
+   
+   .lead.why-subtitle {
+     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+     font-weight: 400;
+     font-size: 22px;
+     line-height: 125%;
+     letter-spacing: -0.02em;
+     color: #000000;
+     margin: 0 0 48px 0;
+     max-width: 720px;
+   }
+   
+   /* Features layout - scoped to .why-section only */
+   .why-section .why-features {
+     display: grid;
+     grid-template-columns: repeat(3, minmax(300px, 1fr));
+     column-gap: 56px;
+     row-gap: 48px;
+     align-items: start;
+     justify-items: start;
+   }
+   
+   /* Card layout - scoped to .why-section only */
+   .why-section .why-card {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     text-align: left;
+     width: 100%;
+     min-width: 0;
+   }
+   
+   /* Icon circular with halo - scoped to .why-section only */
+   .why-section .why-icon {
+     width: 60px;
+     height: 60px;
+     border-radius: 50%;
+     background: transparent;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     box-shadow: none;
+     margin-bottom: 24px;
+     margin-left: 0;
+     margin-right: auto;
+     border: none;
+     flex-shrink: 0;
+   }
+   
+   .why-section .why-icon img {
+     width: 60px;
+     height: 60px;
+     object-fit: contain;
+     display: block;
+   }
+   
+   /* Title - scoped to .why-section only */
+   .why-section .why-card h3 {
+     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+     font-weight: 500;
+     font-size: 24px;
+     line-height: 120%;
+     letter-spacing: -0.02em;
+     color: #171717;
+     margin: 0 0 16px 0;
+     text-align: left;
+     width: 100%;
+   }
+   
+   /* Description text — scoped to .why-section only */
+   .why-section .why-card p {
+     margin: 0;
+     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+     font-weight: 400;
+     font-size: 18px;
+     line-height: 140%;
+     letter-spacing: -0.02em;
+     color: #999999;
+     opacity: 1;
+     width: 282px;
+     height: 118px;
+     display: block;
+     word-break: normal;
+     overflow-wrap: normal;
+     word-wrap: normal;
+     white-space: normal;
+     -webkit-hyphens: none;
+     hyphens: none;
+     text-align: left;
+     box-sizing: border-box;
+     margin-left: 0;
+     margin-right: auto;
+   }
+   
+   .why-section .why-desc-4,
+   .why-section .why-desc-5 {
+     margin: 0 !important;
+     margin-left: 0 !important;
+     margin-right: auto !important;
+     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+     font-weight: 400 !important;
+     font-size: 18px !important;
+     line-height: 140% !important;
+     letter-spacing: -0.02em !important;
+     color: #999999 !important;
+     opacity: 1 !important;
+     width: 282px !important;
+     height: 118px !important;
+     display: block !important;
+     word-break: normal !important;
+     overflow-wrap: normal !important;
+     word-wrap: normal !important;
+     white-space: normal !important;
+     -webkit-hyphens: none !important;
+     hyphens: none !important;
+     text-align: left !important;
+     box-sizing: border-box !important;
+   }
+   
+   /* =========================
+      Desktop: Match Figma exactly (1440px)
+      ========================= */
+   @media (min-width: 1440px) {
+     .why-section {
+       width: 1280px;
+       max-width: 1280px;
+       height: 863px;
+       min-height: 863px;
+       background: #F5F5F5;
+       padding: 96px 0 80px;
+       margin: 0 auto;
+       overflow: hidden;
+     }
+     
+     .why-section .container {
+       max-width: 1280px;
+       padding: 0 24px;
+     }
+   }
+   
+   /* =========================
+      Responsive
+      ========================= */
+   @media (max-width: 1439px) {
+     .why-section {
+       width: 100%;
+       height: auto;
+       background: #F3F4F6;
+     }
+     
+     .why-section .container {
+       max-width: 100%;
+     }
+   }
+   
+   @media (max-width: 1200px) {
+     .why-section .why-features {
+       gap: 44px;
+     }
+   }
+   
+  @media (max-width: 1024px) {
+    .why-section { padding: 80px 0 64px; }
+    .why-section .container {
+      padding: 0 24px;
+    }
+    .lead.why-subtitle { font-size: 20px; }
+    .why-heading { font-size: 48px; }
+    .why-section .why-features {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 40px;
+    }
+    .why-section .why-icon {
+      width: 54px;
+      height: 54px;
+      background: transparent;
+      box-shadow: none;
+      margin-left: 0;
+      margin-right: auto;
+    }
+    .why-section .why-icon img {
+      width: 27px;
+      height: 27px;
+    }
+    .why-section .why-card h3 {
+      font-size: 22px;
+      margin: 0 0 14px 0;
+      text-align: left;
+      width: 100%;
+    }
+    .why-section .why-card p {
+      font-size: 16px;
+      max-width: 420px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  /* Tablet devices (768px - 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .why-section {
+      padding: 88px 0 72px;
+    }
+
+    .why-section .container {
+      padding: 0 32px;
+    }
+
+    .lead.why-subtitle {
+      font-size: 21px;
+    }
+
+    .why-heading {
+      font-size: 50px;
+    }
+
+    .why-section .why-features {
+      column-gap: 44px;
+      row-gap: 36px;
+    }
+
+    .why-section .why-icon {
+      width: 56px;
+      height: 56px;
+    }
+
+    .why-section .why-icon img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .why-section .why-card h3 {
+      font-size: 23px;
+      margin: 0 0 16px 0;
+    }
+
+    .why-section .why-card p {
+      font-size: 17px;
+      max-width: 100%;
+    }
+  }
+  
+  /* Standard mobile breakpoint */
+  @media (max-width: 768px) {
+     .why-section .why-icon {
+       transform: translateX(-5%) !important;
+     }
+   }
+   
+   @media (max-width: 720px) {
+     .why-section { padding: 64px 0; }
+     .why-section .container {
+       padding: 0 20px;
+     }
+     .why-heading { font-size: 36px; }
+     .lead.why-subtitle {
+       font-size: 18px;
+       margin-bottom: 36px;
+     }
+     .why-section .why-features {
+       grid-template-columns: 1fr;
+       row-gap: 32px;
+     }
+     .why-section .why-icon {
+       width: 50px;
+       height: 50px;
+       background: transparent;
+       box-shadow: none;
+       margin-bottom: 16px;
+       margin-left: 0;
+       margin-right: auto;
+       transform: translateX(-5%) !important;
+     }
+     .why-section .why-icon img {
+       width: 25px;
+       height: 25px;
+     }
+     
+     /* Ensure text and icon are properly aligned vertically */
+     .why-section .why-card {
+       align-items: flex-start;
+     }
+     
+     .why-section .why-card h3 {
+       font-size: 20px;
+       margin: 0 0 12px 0;
+       margin-left: 0;
+       padding-left: 0;
+       text-align: left;
+       width: 100%;
+       align-self: flex-start;
+     }
+     .why-section .why-card p {
+       font-size: 14px;
+       max-width: 420px;
+       margin-left: 0;
+       margin-right: auto;
+     }
+   }
+   

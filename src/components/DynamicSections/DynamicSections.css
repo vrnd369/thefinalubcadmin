@@ -1,0 +1,357 @@
+/* ============================================
+   DYNAMIC SECTIONS - FIXED DIMENSIONS
+   ============================================ */
+
+/* Hero Section - Fixed Dimensions */
+.dynamic-hero-section {
+  position: relative !important;
+  width: 100% !important;
+  height: 1226px !important;
+  min-height: 1226px !important;
+  max-width: 100% !important;
+}
+
+.dynamic-hero-video {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  /* Prevent browser from pausing video for power saving */
+  will-change: contents !important;
+  transform: translateZ(0) !important; /* Force hardware acceleration */
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  /* Ensure video stays visible and active */
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  /* Ensure video covers full area and hides any desktop elements */
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 0 !important;
+}
+
+/* YouTube/Vimeo iframe styling - covers full area, no black bars */
+/* Scale is calculated dynamically via JavaScript based on container dimensions */
+.hero-video-wrapper iframe.dynamic-hero-video {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  /* Start with container dimensions */
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  /* Transform is set inline via JavaScript to calculate optimal scale */
+  /* Default transform (will be overridden by inline style) */
+  transform: translate(-50%, -50%) scale(1.5) !important;
+  border: none !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #000 !important;
+}
+
+/* Ensure iframe wrapper clips overflow to prevent black bars */
+.hero-video-wrapper {
+  overflow: hidden !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: #000 !important; /* Black background to hide any desktop elements */
+  z-index: 0 !important;
+  /* Ensure video wrapper is above any desktop elements */
+  isolation: isolate !important;
+}
+
+/* For mobile, ensure full coverage */
+@media (max-width: 768px) {
+  .hero-video-wrapper iframe.dynamic-hero-video {
+    width: 100vw !important;
+    height: 100% !important;
+    min-width: 100vw !important;
+    min-height: 100% !important;
+  }
+}
+
+/* Feature Cards Icons - Fixed Dimensions with Circular Conversion */
+.dynamic-why-icon {
+  width: 80px !important;
+  height: 80px !important;
+  min-width: 80px !important;
+  max-width: 80px !important;
+  min-height: 80px !important;
+  max-height: 80px !important;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 24px;
+  overflow: hidden !important;
+  background: transparent;
+  position: relative;
+}
+
+.dynamic-why-icon img {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  display: block !important;
+  border-radius: 50% !important;
+  /* Force circular clipping - converts any dimension image to perfect circle */
+  clip-path: circle(50% at 50% 50%) !important;
+  -webkit-clip-path: circle(50% at 50% 50%) !important;
+  /* Ensure image fills entire circle regardless of original dimensions */
+  aspect-ratio: 1 / 1 !important;
+  /* Ensure full image is visible - no cropping */
+  background: transparent;
+}
+
+/* Responsive Icon Sizes */
+/* Tablet Icons (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dynamic-why-icon {
+    width: 70px !important;
+    height: 70px !important;
+    min-width: 70px !important;
+    max-width: 70px !important;
+    min-height: 70px !important;
+    max-height: 70px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  .dynamic-why-icon img {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    border-radius: 50% !important;
+    clip-path: circle(50% at 50% 50%) !important;
+    -webkit-clip-path: circle(50% at 50% 50%) !important;
+    aspect-ratio: 1 / 1 !important;
+    background: transparent;
+  }
+}
+
+/* Mobile Icons (<768px) */
+@media (max-width: 767px) {
+  .dynamic-why-icon {
+    width: 70px !important;
+    height: 70px !important;
+    min-width: 70px !important;
+    max-width: 70px !important;
+    min-height: 70px !important;
+    max-height: 70px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  .dynamic-why-icon img {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    display: block !important;
+    border-radius: 50% !important;
+    /* Force circular clipping - converts any dimension image to perfect circle */
+    clip-path: circle(50% at 50% 50%) !important;
+    -webkit-clip-path: circle(50% at 50% 50%) !important;
+    /* Ensure image fills entire circle regardless of original dimensions */
+    aspect-ratio: 1 / 1 !important;
+    /* Ensure full image is visible - no cropping */
+    background: transparent;
+  }
+}
+
+/* Hero Section Responsive */
+/* Desktop Hero (≥1024px) */
+@media (min-width: 1024px) {
+  .dynamic-hero-section {
+    height: 1226px !important;
+    min-height: 1226px !important;
+  }
+}
+
+/* Tablet Hero (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dynamic-hero-section {
+    height: auto !important;
+    min-height: 600px !important;
+    max-height: 800px !important;
+  }
+}
+
+/* Mobile Hero (<768px) */
+@media (max-width: 767px) {
+  .dynamic-hero-section {
+    height: auto !important;
+    min-height: 882px !important;
+    max-height: 882px !important;
+  }
+}
+
+/* ========== OVERVIEW SECTION - Fixed Responsive Dimensions ========== */
+.overview.section {
+  width: 100% !important;
+}
+
+/* Desktop Overview (≥1440px) */
+@media (min-width: 1440px) {
+  .overview.section {
+    height: 1261px !important;
+    min-height: 1261px !important;
+    padding: 120px 0 !important;
+  }
+
+  .overview .container {
+    max-width: 1280px !important;
+    padding: 0 24px !important;
+  }
+
+  .overview-logo img {
+    height: 44px !important;
+    width: auto !important;
+  }
+}
+
+/* Tablet Overview (768px - 1439px) */
+@media (min-width: 768px) and (max-width: 1439px) {
+  .overview.section {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 80px 0 !important;
+  }
+
+  .overview .container {
+    max-width: 100% !important;
+    padding: 0 32px !important;
+  }
+
+  .overview-logo img {
+    height: 40px !important;
+    width: auto !important;
+  }
+}
+
+/* Mobile Overview (<768px) */
+@media (max-width: 767px) {
+  .overview.section {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 64px 0 !important;
+  }
+
+  .overview .container {
+    max-width: 100% !important;
+    padding: 0 20px !important;
+  }
+
+  .overview-logo img {
+    height: 36px !important;
+    width: auto !important;
+  }
+}
+
+/* ========== TEXT+IMAGE SECTION (Promise Section) - Fixed Responsive Dimensions ========== */
+.promise-section.section {
+  width: 100% !important;
+}
+
+/* Desktop Text+Image (≥1440px) */
+@media (min-width: 1440px) {
+  .promise-section.section {
+    height: 590px !important;
+    min-height: 590px !important;
+    padding: 120px 0 !important;
+  }
+
+  .promise-section .container {
+    max-width: 1280px !important;
+    padding: 0 24px !important;
+  }
+}
+
+/* Tablet Text+Image (768px - 1439px) */
+@media (min-width: 768px) and (max-width: 1439px) {
+  .promise-section.section {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 100px 0 !important;
+  }
+
+  .promise-section .container {
+    max-width: 100% !important;
+    padding: 0 24px !important;
+  }
+}
+
+/* Mobile Text+Image (<768px) */
+@media (max-width: 767px) {
+  .promise-section.section {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 80px 0 !important;
+  }
+
+  .promise-section .container {
+    max-width: 100% !important;
+    padding: 0 20px !important;
+  }
+}
+
+/* Image Containers - Fixed Dimensions */
+.dynamic-image-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.dynamic-image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Changed from cover to contain to prevent cropping */
+  display: block;
+}
+
+/* Ensure all images maintain aspect ratio */
+.dynamic-section img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Video Elements - Fixed Dimensions */
+.dynamic-video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+}

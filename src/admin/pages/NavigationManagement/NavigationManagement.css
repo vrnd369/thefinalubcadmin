@@ -1,0 +1,246 @@
+/* ============================================
+   NAVIGATION MANAGEMENT PAGE
+   ============================================ */
+
+.navigation-management {
+  width: 100%;
+}
+
+/* Page Header */
+.navigation-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--admin-spacing-xl);
+  gap: var(--admin-spacing-lg);
+}
+
+/* Navbar Preview Section */
+.navbar-preview-section {
+  margin-bottom: var(--admin-spacing-xl);
+  padding: var(--admin-spacing-lg);
+  background-color: var(--admin-bg-secondary);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-md);
+  box-shadow: var(--admin-shadow);
+}
+
+.preview-header {
+  margin-bottom: var(--admin-spacing-md);
+  padding-bottom: var(--admin-spacing-md);
+  border-bottom: 1px solid var(--admin-border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--admin-spacing-md);
+}
+
+.preview-header h2 {
+  margin-bottom: var(--admin-spacing-xs);
+}
+
+.preview-empty-state {
+  text-align: center;
+  padding: var(--admin-spacing-xl);
+  color: var(--admin-text-light);
+}
+
+.navbar-preview-container {
+  position: relative;
+  background: linear-gradient(to bottom, #f0f4f8 0%, #ffffff 100%);
+  border-radius: var(--admin-radius);
+  padding: var(--admin-spacing-xl) var(--admin-spacing-lg);
+  min-height: 200px;
+  overflow: visible;
+  width: 100%;
+  margin-bottom: 100px; /* Extra space for dropdowns */
+}
+
+.preview-wrapper {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Ensure navbar displays properly in preview - override fixed positioning */
+.navbar-preview-container .navbar-wrap {
+  position: relative !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  z-index: 1000;
+  width: 100%;
+  max-width: 100%;
+  inset: unset !important;
+}
+
+.navbar-preview-container .navbar-wrap .container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.navbar-preview-container .navbar {
+  position: relative !important;
+  margin: 0 auto;
+  width: 100%;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure nav links are visible */
+.navbar-preview-container .nav-links {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Ensure dropdowns work in preview */
+.navbar-preview-container .dropdown {
+  position: relative !important;
+  display: inline-block !important;
+}
+
+.navbar-preview-container .dropdown .menu {
+  position: absolute !important;
+  top: calc(100% + 4px) !important;
+  left: 0 !important;
+  z-index: 1001 !important;
+  display: none;
+  flex-direction: column;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(229,231,235,.7) !important;
+  border-radius: 16px !important;
+  padding: 12px 8px !important;
+  min-width: 220px !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.08) !important;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity .2s ease-out, transform .2s ease-out;
+  pointer-events: none;
+}
+
+/* Only show menu when explicitly opened via JavaScript state, not on hover */
+.navbar-preview-container .dropdown.open .menu.open {
+  display: flex !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+/* Hide menu if parent dropdown doesn't have .open class */
+.navbar-preview-container .dropdown:not(.open) .menu {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+/* Ensure submenus are visible */
+.navbar-preview-container .submenu {
+  position: absolute !important;
+  left: calc(100% + 4px) !important;
+  top: -8px !important;
+  z-index: 1002 !important;
+  display: none;
+}
+
+.navbar-preview-container .brand-item-with-submenu:hover .submenu,
+.navbar-preview-container .submenu.open {
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Make sure hamburger and CTA buttons are visible */
+.navbar-preview-container .hamburger {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+.navbar-preview-container .desktop-cta {
+  display: inline-flex !important;
+  visibility: visible !important;
+}
+
+/* Ensure dropdown menu is visible when open */
+.navbar-preview-container .menu.open {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure all navigation items are visible */
+.navbar-preview-container .nav-links > * {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Make sure brand logo is visible */
+.navbar-preview-container .brand {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+/* Editor Container */
+.navigation-editor-container {
+  margin-bottom: var(--admin-spacing-xl);
+}
+
+/* Navigation Items Grid */
+.navigation-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--admin-spacing-lg);
+}
+
+/* Empty State */
+.admin-empty-state {
+  text-align: center;
+  padding: var(--admin-spacing-2xl);
+  background-color: var(--admin-bg-secondary);
+  border: 2px dashed var(--admin-border);
+  border-radius: var(--admin-radius-md);
+}
+
+/* Alert Styles */
+.admin-alert {
+  padding: var(--admin-spacing-md);
+  border-radius: var(--admin-radius);
+  margin-bottom: var(--admin-spacing-lg);
+}
+
+.admin-alert-error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+/* Loading State */
+.admin-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--admin-spacing-md);
+  padding: var(--admin-spacing-2xl);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navigation-header {
+    flex-direction: column;
+  }
+  
+  .navigation-items-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .navbar-preview-container {
+    padding: var(--admin-spacing-md);
+  }
+}
+

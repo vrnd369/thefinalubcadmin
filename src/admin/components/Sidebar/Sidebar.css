@@ -1,0 +1,278 @@
+/* ============================================
+   ADMIN SIDEBAR - Navigation Menu
+   ============================================ */
+
+.admin-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--admin-bg-secondary);
+  border-right: 1px solid var(--admin-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  box-shadow: var(--admin-shadow-md);
+  transition: width 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+}
+
+.admin-sidebar.sidebar-closed {
+  width: 70px;
+}
+
+.admin-sidebar.sidebar-closed .admin-sidebar-label {
+  display: none;
+}
+
+.admin-sidebar.sidebar-closed .admin-sidebar-logo {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.admin-sidebar-header {
+  padding: var(--admin-spacing-lg) var(--admin-spacing-xl);
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-sidebar-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--admin-primary);
+  margin: 0;
+}
+
+.admin-sidebar-nav {
+  flex: 1;
+  padding: var(--admin-spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--admin-spacing-xs);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Sidebar Footer with Toggle Button */
+.admin-sidebar-footer {
+  padding: var(--admin-spacing-md);
+  border-top: 1px solid var(--admin-border);
+  background-color: var(--admin-bg-secondary);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.admin-sidebar-toggle-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Floating Note/Tooltip */
+.admin-sidebar-toggle-note {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4), 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: float-note 3s ease-in-out infinite, fade-in-note 0.5s ease-out;
+  pointer-events: none;
+  max-width: 200px;
+  text-align: center;
+}
+
+@keyframes fade-in-note {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.admin-sidebar-toggle-note::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #2563eb;
+}
+
+@keyframes float-note {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-4px);
+  }
+}
+
+.note-icon {
+  font-size: 1rem;
+  animation: pulse-icon 2s ease-in-out infinite;
+}
+
+@keyframes pulse-icon {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.note-text {
+  letter-spacing: 0.2px;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+  }
+  50% {
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.3);
+  }
+}
+
+.admin-sidebar-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--admin-spacing-md);
+  padding: var(--admin-spacing-md);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.15) 100%);
+  border: 2px solid var(--admin-primary);
+  border-radius: var(--admin-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  color: var(--admin-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  justify-content: flex-start;
+  white-space: nowrap;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+  position: relative;
+  animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+.admin-sidebar-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.2) 100%);
+  border-radius: var(--admin-radius);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.admin-sidebar-toggle:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(37, 99, 235, 0.25) 100%);
+  color: var(--admin-primary);
+  border-color: var(--admin-primary);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transform: translateY(-1px);
+}
+
+.admin-sidebar-toggle:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
+.admin-sidebar.sidebar-closed .admin-sidebar-toggle {
+  justify-content: center;
+  padding: var(--admin-spacing-md);
+}
+
+.admin-sidebar-toggle .admin-sidebar-icon {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--admin-primary);
+  transition: transform 0.3s ease;
+}
+
+.admin-sidebar-toggle:hover .admin-sidebar-icon {
+  transform: scale(1.1);
+}
+
+.admin-sidebar-toggle .admin-sidebar-label {
+  font-weight: 600;
+  color: var(--admin-primary);
+  letter-spacing: 0.3px;
+}
+
+.admin-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: var(--admin-spacing-md);
+  padding: var(--admin-spacing-md);
+  background: none;
+  border: none;
+  border-radius: var(--admin-radius);
+  cursor: pointer;
+  transition: var(--admin-transition);
+  text-align: left;
+  color: var(--admin-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  justify-content: flex-start;
+  white-space: nowrap;
+}
+
+.admin-sidebar.sidebar-closed .admin-sidebar-item {
+  justify-content: center;
+  padding: var(--admin-spacing-md);
+}
+
+.admin-sidebar-item:hover {
+  background-color: var(--admin-bg);
+  color: var(--admin-primary);
+}
+
+.admin-sidebar-item.active {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--admin-primary);
+  font-weight: 600;
+}
+
+.admin-sidebar-icon {
+  font-size: 1.25rem;
+  width: 24px;
+  text-align: center;
+}
+
+.admin-sidebar-label {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+}
+

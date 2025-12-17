@@ -1,0 +1,169 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is authenticated
+    // Note: This requires Firebase Authentication to be set up
+    // For now, this checks if request.auth exists (Firebase Auth)
+    // If you're using custom auth, you'll need to integrate Firebase Auth
+    // and store admin user UIDs in adminUsers collection
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user is an admin
+    // This checks if the authenticated user's email exists in adminUsers collection
+    // Note: This requires Firebase Auth email to match adminUsers email
+    function isAdmin() {
+      return isAuthenticated() && 
+             exists(/databases/$(database)/documents/adminUsers/$(request.auth.uid));
+    }
+    
+    // Helper function to check if user has specific role
+    // This checks the role field in adminUsers document
+    function hasRole(role) {
+      return isAuthenticated() && 
+             get(/databases/$(database)/documents/adminUsers/$(request.auth.uid)).data.role == role;
+    }
+    
+    // Helper function to check if user is super admin
+    function isSuperAdmin() {
+      return hasRole('super_admin');
+    }
+    
+    // Helper function to check if user is admin or super admin
+    function isAdminOrSuperAdmin() {
+      return hasRole('admin') || hasRole('super_admin');
+    }
+
+    // Public collections - anyone can read, only authenticated admins can write
+    // TEMPORARY: Allowing writes without Firebase Auth for custom auth system
+    // TODO: Integrate Firebase Auth and change all write rules to: allow write: if isAuthenticated();
+    
+    // Contact page - public can read, admins can write
+    match /contactPage/{document=**} {
+      allow read: if true; // Public read access
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+
+    // Navigation - public can read, admins can write
+    match /navigation/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Navigation icons - public can read, admins can write
+    match /navigation-icons/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Home sections - public can read, admins can write
+    match /homeSections/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // About sections - public can read, admins can write
+    match /aboutSections/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Images - public can read, admins can write
+    // TEMPORARY: Allowing writes without Firebase Auth for custom auth system
+    // TODO: Integrate Firebase Auth and change to: allow write: if isAuthenticated();
+    match /images/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Videos - public can read, admins can write
+    match /videos/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Brands - public can read, admins can write
+    match /brands/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Categories - public can read, admins can write
+    match /categories/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Products - public can read, admins can write
+    match /products/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Brand pages - public can read, admins can write
+    match /brandPages/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+
+    // Careers page - public can read, admins can write
+    match /careersPage/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+
+    // Header - public can read, admins can write
+    match /header/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+
+    // Footer - public can read, admins can write
+    match /footer/{document=**} {
+      allow read: if true;
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+
+    // Form submissions - public can write (submit forms), admins can read/update/delete
+    match /formSubmissions/{document=**} {
+      allow read: if isAuthenticated(); // Only authenticated users can read
+      allow create: if true; // Public can submit forms
+      allow update, delete: if isAuthenticated(); // Only authenticated users can update/delete
+    }
+
+    // Form submission files - public can write (upload files), admins can read/delete
+    match /formSubmissionFiles/{document=**} {
+      allow read: if isAuthenticated(); // Only authenticated users can read
+      allow create: if true; // Public can upload files with form submissions
+      allow update, delete: if isAuthenticated(); // Only authenticated users can update/delete
+    }
+
+    // Enquiry form - public can read (form config) and write (submit enquiries), admins can manage
+    match /enquiry-form/{document=**} {
+      allow read: if true; // Public can read form configuration
+      allow create: if true; // Public can submit enquiries
+      allow update, delete: if isAuthenticated(); // Only authenticated users can update/delete
+    }
+
+    // Admin users - only authenticated admins can read, only super admins can write
+    // TEMPORARY: Allowing access for custom auth system
+    match /adminUsers/{document=**} {
+      allow read: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+      allow write: if true; // TEMPORARY - Change to isSuperAdmin() after Firebase Auth integration
+    }
+
+    // Audit logs - only authenticated admins can read/write
+    // TEMPORARY: Allowing access for custom auth system
+    match /auditLogs/{document=**} {
+      allow read: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Default rule: deny all other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+

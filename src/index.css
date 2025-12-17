@@ -1,0 +1,273 @@
+:root{
+  --ubc-purple:#3730A3;
+  --ubc-deeppurple:#2B2D6B;
+  --ubc-accent:#4F46E5;
+  --ubc-bg:#F6F7FB;
+  --ubc-text:#111827;
+  --ubc-muted:#6B7280;
+  --ubc-card:#FFFFFF;
+  --radius-lg:24px;
+  --radius-md:16px;
+  --radius-sm:12px;
+  --shadow-lg:0 20px 45px rgba(17, 24, 39, .12);
+  --shadow-md:0 10px 28px rgba(17, 24, 39, .10);
+  --shadow-sm:0 6px 16px rgba(17, 24, 39, .08);
+}
+*{box-sizing:border-box}
+html, body, #root{
+  height:100%;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+html {
+  position: relative;
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  /* Hide scrollbar but keep scrolling functionality */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+@supports (scrollbar-width: none) {
+  html {
+    scrollbar-width: none; /* Firefox */
+  }
+}
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+body{
+  margin:0 !important;
+  padding:0 !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color:var(--ubc-text);
+  background:var(--ubc-bg) !important;
+  background-color:var(--ubc-bg) !important;
+  line-height:1.5;
+  overflow-x:hidden !important;
+  overflow-y: auto !important; /* Enable vertical scrolling */
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative;
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  /* Hide scrollbar but keep scrolling functionality */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+@supports (scrollbar-width: none) {
+  body {
+    scrollbar-width: none; /* Firefox */
+  }
+}
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+#root {
+  width: 100% !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  position: relative;
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  background: var(--ubc-bg) !important;
+  background-color: var(--ubc-bg) !important;
+  min-height: 100vh;
+  /* Hide scrollbar but keep scrolling functionality */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+@supports (scrollbar-width: none) {
+  #root {
+    scrollbar-width: none; /* Firefox */
+  }
+}
+#root::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+a{color:inherit;text-decoration:none}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#1F2A6B;color:#FFFFFF;padding:8px 14px;border-radius:999px;font-weight:600;font-size:9px;letter-spacing:.3px;
+}
+
+/* Desktop-only: Ensure WHY, OUR BRANDS (BrandsSection), and OUR BRANDS (BrandsCarousel) sections have identical container alignment */
+@media (min-width: 769px) {
+  .why-section .container,
+  .brands-carousel-section .container,
+  .promise-section .container {
+    max-width: 1280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Ensure tags align exactly at container padding-left */
+  .tag.why-tag,
+  .brands-carousel-tag,
+  .tag.promise-tag,
+  .promise-tag {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    left: 0 !important;
+  }
+}
+.section{padding:140px 0}
+@media (max-width: 768px) {
+  .section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 0 !important;
+    right: 0 !important;
+    /* Preserve vertical padding (top/bottom) for spacing between sections */
+  }
+  
+  /* Remove top padding/margin from section immediately after hero */
+  .hero + .section:not(.promise-section),
+  .hero + section:not(.promise-section) {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Allow margin-top for promise-section (Our Brands) - reduced spacing */
+  .hero + .promise-section,
+  .hero + section.promise-section {
+    margin-top: 24px !important;
+    padding-top: 0 !important;
+  }
+}
+.card{background:var(--ubc-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
+.chips{display:flex;gap:12px;flex-wrap:wrap}
+.chip{padding:10px 16px;border-radius:999px;background:#F0F1F6;color:#374151;cursor:pointer;border:1px solid #E6E7EF}
+.chip.active{background:#EAE9FF;color:#1F2A6B;border-color:#DAD7FF}
+h1,h2,h3{margin:0 0 12px}
+h1{font-size:56px;line-height:1.05;letter-spacing:-.02em}
+h2{font-size:40px;line-height:1.1}
+.lead{font-size:18px;color:var(--ubc-muted);max-width:720px}
+.grid{display:grid;gap:24px}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width: 900px){
+  h1{font-size:40px}
+  .grid-3{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+}
+
+/* Mobile - Force full width, no left spacing */
+@media (max-width: 768px) {
+  html, body, #root, .App, main, .home, .hero {
+    width: 100% !important;
+    max-width: 100vw !important;
+    min-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+    transform: translateX(0) !important;
+  }
+  
+  /* Sections: remove horizontal padding but preserve vertical padding for spacing */
+  section, .section {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    /* Don't override padding-top and padding-bottom - let individual sections control vertical spacing */
+  }
+  
+  /* Video elements - ensure they're not affected by global rules */
+  .hero-video-wrapper, .hero-video, .hero-overlay {
+    position: absolute !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-width: 100vw !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+  
+  /* Force all sections to full width - but preserve vertical padding */
+  section, .section {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    /* padding-top and padding-bottom are preserved from individual section styles */
+  }
+  
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Ensure hero-inner container is full width */
+  .hero-inner.container,
+  .container.hero-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Ensure hero and all its children are full width */
+  .hero, .hero-video-wrapper, .hero-video, .hero-overlay {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .hero-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

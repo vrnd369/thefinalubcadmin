@@ -1,0 +1,35 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Images folder - allow public read, authenticated write
+    match /images/{imageId} {
+      // Allow public read (images need to be accessible on the website)
+      allow read: if true;
+      // Allow authenticated write (admin uploads)
+      // TEMPORARY: Allow write without auth for custom auth system
+      // TODO: Change to isAuthenticated() after Firebase Auth integration
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Videos folder - allow public read, authenticated write
+    match /videos/{videoId} {
+      // Allow public read (videos need to be accessible on the website)
+      allow read: if true;
+      // Allow authenticated write (admin uploads)
+      // TEMPORARY: Allow write without auth for custom auth system
+      // TODO: Change to isAuthenticated() after Firebase Auth integration
+      allow write: if true; // TEMPORARY - Change to isAuthenticated() after Firebase Auth integration
+    }
+    
+    // Default: deny all other access
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
+

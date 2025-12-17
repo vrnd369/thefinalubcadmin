@@ -1,0 +1,525 @@
+.overview{
+  padding: 0;
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  max-width: 100%;
+  height: 1261px;
+  min-height: 1261px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.overview-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  /* ✨ this gives the parallax effect */
+  background-attachment: fixed;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+.overview .container{
+  position: relative;
+  text-align: left;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 95px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 120px 24px 0 24px; /* Match navbar container padding exactly */
+  box-sizing: border-box;
+  width: 100%; /* Remove fixed width, use 100% instead */
+  height: auto;
+  min-height: 256px;
+  padding-left: 24px !important; /* Match navbar container padding */
+  padding-right: 24px !important;
+}
+
+.overview-content{
+  width: 588px; /* Increased by 15% from 511px (511 * 1.15 = 588px) */
+  min-height: 602.4px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 25.04px;
+  padding: 27px 38px;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  margin-left: 20px; /* Add navbar pill padding (20px) to align with logo */
+  align-items: flex-start;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* ================= TAG & SMALL STAR ================= */
+
+.overview-tag{
+  background: transparent;
+  color: #111827; /* Neutral/900 */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border-radius: 0;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 500; /* Medium */
+  font-size: 10.43px;
+  line-height: 21.9px;
+  letter-spacing: 0.27em; /* 27% */
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: auto;
+  margin-top: 0;
+  width: fit-content;
+  border: none;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+
+.overview-tag .tell-us-star{
+  width: 12.52px;
+  height: 12.52px;
+  flex-shrink: 0;
+  display: block;
+  color: #3D3791; /* Blue/500 */
+  font-size: 12.52px;
+  line-height: 1;
+}
+
+/* ================= HEADING / TEXT ================= */
+
+.overview-heading{
+  color: #111827;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 45.91px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px 0; /* Reduced from 20px */
+  text-align: left;
+}
+
+.overview-heading-nowrap{
+  white-space: nowrap;
+}
+
+.overview-logo{
+  margin: 0 0 12px 0; /* Reduced from 20px */
+  align-self: flex-start;
+}
+
+.overview-logo img{
+  height: 44px;
+  width: auto;
+  /* Filter removed to display logo in original colors */
+}
+
+.overview-text{
+  color: #6B7280;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 18.78px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-align: left;
+  align-self: flex-start;
+  width: 100%;
+}
+
+/* ================= BUTTON & STAR (MATCHES IMAGE) ================= */
+
+.overview-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 28px;
+  height: 52px;
+  border-radius: 999px;
+  background: #FFFFFF;
+  color: #111827;
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  box-sizing: border-box;
+  margin: 20px 0 0 0;
+  align-self: flex-start;
+}
+
+.overview-btn:hover{
+  background: #F9FAFB;
+  border-color: rgba(209, 213, 219, 0.9);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+.overview-btn .tell-us-star{
+  width: 20.87px;
+  height: 20.87px;
+  flex-shrink: 0;
+  display: block;
+  color: #3D3791; /* Blue/500 */
+  font-size: 20.87px;
+  line-height: 1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1440px){
+  .overview .container{
+    max-width: 1280px;
+    width: 100%; /* Use 100% instead of auto */
+    padding: 120px 24px 0 24px;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  .overview-content{
+    margin-left: 20px; /* Add navbar pill padding */
+  }
+}
+
+@media (max-width: 1024px){
+  .overview{
+    height: auto;
+    min-height: 100vh;
+    padding: 72px 0;
+  }
+  .overview .container{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0;
+    padding: 0 20px; /* Match navbar container padding */
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .overview-content{
+    width: 90%;
+    max-width: 697px;
+    padding: 30px;
+    margin: 0;
+    margin-left: 18px; /* Add navbar pill padding (18px) */
+    gap: 17px;
+  }
+  .overview-heading{
+    font-size: 40px;
+  }
+  .overview-text{
+    font-size: 18px;
+  }
+  .overview-btn{
+    height: 48px;
+    padding: 0 24px;
+    font-size: 15px;
+  }
+  .overview-tag .tell-us-star{
+    width: 12.52px;
+    height: 12.52px;
+    font-size: 12.52px;
+    color: #3D3791; /* Blue/500 */
+  }
+  .overview-btn .tell-us-star{
+    width: 20.87px;
+    height: 20.87px;
+    font-size: 20.87px;
+  }
+}
+
+/* Tablet devices (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .overview {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 0;
+  }
+
+  .overview .container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0;
+    padding: 0 32px;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  .overview-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 36px;
+    margin: 0;
+    margin-left: 0;
+    gap: 20px;
+  }
+
+  .overview-heading {
+    font-size: 42px;
+  }
+
+  .overview-text {
+    font-size: 18.5px;
+  }
+
+  .overview-btn {
+    height: 50px;
+    padding: 0 26px;
+    font-size: 15.5px;
+  }
+
+  .overview-tag .tell-us-star {
+    width: 13px;
+    height: 13px;
+    font-size: 13px;
+    color: #3D3791;
+  }
+
+  .overview-btn .tell-us-star {
+    width: 21px;
+    height: 21px;
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 900px){
+  .overview{
+    height: auto;
+    min-height: 100vh;
+    padding: 64px 0;
+  }
+  .overview .container{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0;
+    padding: 0 20px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .overview-content{
+    width: 85%;
+    max-width: 633px;
+    padding: 27px;
+    margin: 0;
+    margin-left: 18px; /* Add navbar pill padding */
+    gap: 15px;
+  }
+  .overview-heading{
+    font-size: 36px;
+  }
+  .overview-text{
+    font-size: 17px;
+  }
+  .overview-btn{
+    height: 46px;
+    padding: 0 22px;
+    font-size: 15px;
+  }
+  .overview-tag .tell-us-star{
+    width: 12.52px;
+    height: 12.52px;
+    font-size: 12.52px;
+    color: #3D3791; /* Blue/500 */
+  }
+  .overview-btn .tell-us-star{
+    width: 20.87px;
+    height: 20.87px;
+    font-size: 20.87px;
+  }
+}
+
+@media (max-width: 768px){
+  .overview{
+    height: auto;
+    min-height: 100vh;
+    padding: 56px 0;
+    margin-top: 48px;
+  }
+  .overview .container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0;
+    padding: 0 16px; /* Match navbar container padding */
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .overview-content{
+    width: 90%;
+    max-width: 460px;
+    gap: 13px;
+    padding: 17px;
+    border-radius: 18px;
+    margin: 0;
+    margin-left: 12px; /* Add navbar pill padding (12px) */
+  }
+  .overview-tag{
+    font-size: 9.5px;
+    line-height: 20px;
+  }
+  .overview-tag .tell-us-star{
+    width: 12.52px;
+    height: 12.52px;
+    font-size: 12.52px;
+    color: #3D3791; /* Blue/500 */
+  }
+  .overview-heading{
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  .overview-logo{
+    margin-bottom: 10px;
+  }
+  .overview-logo img{
+    height: 36px;
+  }
+  .overview-text{
+    font-size: 15px;
+  }
+  .overview-btn{
+    height: 44px;
+    padding: 0 20px;
+    font-size: 14px;
+  }
+  .overview-btn .tell-us-star{
+    width: 20.87px;
+    height: 20.87px;
+    font-size: 20.87px;
+  }
+}
+
+@media (max-width: 480px){
+  .overview{
+    height: auto;
+    min-height: 100vh;
+    padding: 48px 0;
+    margin-top: 40px;
+  }
+  .overview .container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0;
+    padding: 0 16px;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .overview-content{
+    width: 85%;
+    max-width: 403px;
+    gap: 11px;
+    padding: 13px;
+    border-radius: 14px;
+    margin: 0;
+    margin-left: 12px; /* Add navbar pill padding */
+  }
+  .overview-tag{
+    font-size: 9px;
+    line-height: 18px;
+  }
+  .overview-tag .tell-us-star{
+    width: 12.52px;
+    height: 12.52px;
+    font-size: 12.52px;
+    color: #3D3791; /* Blue/500 */
+  }
+  .overview-heading{
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .overview-logo{
+    margin-bottom: 8px;
+  }
+  .overview-logo img{
+    height: 32px;
+  }
+  .overview-text{
+    font-size: 14px;
+    line-height: 130%;
+  }
+  .overview-btn{
+    height: 40px;
+    padding: 0 18px;
+    font-size: 13px;
+  }
+  .overview-btn .tell-us-star{
+    width: 20.87px;
+    height: 20.87px;
+    font-size: 20.87px;
+  }
+}
+
+@media (max-width: 375px){
+  .overview{
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 0;
+  }
+  .overview .container{
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .overview-content{
+    margin-left: 12px; /* Add navbar pill padding */
+  }
+  .overview-tag{
+    font-size: 8.5px;
+    line-height: 16px;
+  }
+  .overview-tag .tell-us-star{
+    width: 12.52px;
+    height: 12.52px;
+    font-size: 12.52px;
+    color: #3D3791; /* Blue/500 */
+  }
+  .overview-heading{
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .overview-logo{
+    margin-bottom: 10px;
+  }
+  .overview-logo img{
+    height: 28px;
+  }
+  .overview-text{
+    font-size: 13px;
+    line-height: 130%;
+  }
+  .overview-btn{
+    height: 38px;
+    padding: 0 16px;
+    font-size: 12.5px;
+  }
+  .overview-btn .tell-us-star{
+    width: 20.87px;
+    height: 20.87px;
+    font-size: 20.87px;
+  }
+}
